@@ -1,0 +1,5 @@
+*.pdf
+*.zip
+*.iml
+*/out
+.idea
