@@ -7,9 +7,7 @@ public class UniformRandomNumbers {
 
         double[] nums = new double[5];
 
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = Math.random();
-        }
+        nums = Arrays.stream(nums).map((num) -> Math.random()).toArray();
 
         double min = Arrays.stream(nums).min().getAsDouble();
         double max = Arrays.stream(nums).max().getAsDouble();

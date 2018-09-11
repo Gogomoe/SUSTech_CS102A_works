@@ -1,44 +1,23 @@
-import java.util.*;
-import java.util.stream.Collectors;
-
 public class DragonCurve {
 
-    private static Map<String, String> reverseCharMap = new HashMap<>();
-
-    static {
-        reverseCharMap.put("L", "R");
-        reverseCharMap.put("R", "L");
-    }
-
-    private List<String> turns = new ArrayList<>();
-
-    private DragonCurve(List<String> previous) {
-        List<String> reverse = new ArrayList<>(previous);
-        Collections.reverse(reverse);
-        reverse = reverse.stream()
-                .map(reverseCharMap::get)
-                .collect(Collectors.toList());
-
-        turns.addAll(previous);
-        turns.add("L");
-        turns.addAll(reverse);
-    }
-
-    @Override
-    public String toString() {
-        return "F" + turns.stream()
-                .map(it -> it + "F")
-                .collect(Collectors.joining());
-    }
-
     public static void main(String[] args) {
-        DragonCurve d1 = new DragonCurve(new ArrayList<>());
-        DragonCurve d2 = new DragonCurve(d1.turns);
-        DragonCurve d3 = new DragonCurve(d2.turns);
-        DragonCurve d4 = new DragonCurve(d3.turns);
-        DragonCurve d5 = new DragonCurve(d4.turns);
+        String d0 = "F";
 
-        System.out.println("F");
+        String d1 = d0 + "L" + d0;
+        String d1r = d0 + "R" + d0;
+
+        String d2 = d1 + "L" + d1r;
+        String d2r = d1 + "R" + d1r;
+
+        String d3 = d2 + "L" + d2r;
+        String d3r = d2 + "R" + d2r;
+
+        String d4 = d3 + "L" + d3r;
+        String d4r = d3 + "R" + d3r;
+
+        String d5 = d4 + "L" + d4r;
+
+        System.out.println(d0);
         System.out.println(d1);
         System.out.println(d2);
         System.out.println(d3);
