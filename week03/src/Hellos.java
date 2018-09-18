@@ -12,6 +12,9 @@ public class Hellos {
             map.put(3, "rd");
 
             String postfix = map.getOrDefault(i % 10, "th");
+            if (i > 10 && i < 20) {
+                postfix = "th";
+            }
             System.out.println(MessageFormat.format("{0}{1} hello", i, postfix));
 
 
