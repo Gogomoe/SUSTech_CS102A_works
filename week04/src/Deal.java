@@ -10,7 +10,7 @@ public class Deal {
         Random rnd = new Random();
 
         String[] suits = new String[]{"\u2660", "\u2661", "\u2662", "\u2663"};
-        String[] nums = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+        String[] rank = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
         Set<String> used = new TreeSet<>();
 
         for (int i = 0; i < n; i++) {
@@ -18,14 +18,14 @@ public class Deal {
 
             while (used.size() < 5) {
                 String suit = suits[rnd.nextInt(4)];
-                String card = nums[rnd.nextInt(13)];
+                String card = rank[rnd.nextInt(13)];
 
                 boolean isAdd = used.add(suit + card);
                 if (isAdd) {
-                    System.out.println(suit + card);
+                    System.out.printf("%-3s", suit + card);
                 }
             }
-            
+
             System.out.println();
         }
     }
