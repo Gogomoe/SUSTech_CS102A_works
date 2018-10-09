@@ -7,72 +7,83 @@ public class TwelveDaysOfChristmas {
         System.out.println();
 
         for (int i = 2; i <= 12; i++) {
-            System.out.println("On the " + ordinal(i) + " day of Christmas, ");
+            System.out.print("On the ");
+            ordinal(i);
             System.out.println("My true love gave to me");
-            System.out.println(sentence(i));
+            sentence(i);
             System.out.println();
         }
     }
 
-    private static String ordinal(int n) {
+    private static void ordinal(int n) {
         switch (n) {
             case 1:
-                return "first";
+                System.out.println("first");
+                break;
             case 2:
-                return "second";
+                System.out.println("second");
+                break;
             case 3:
-                return "third";
+                System.out.println("third");
+                break;
             case 4:
-                return "forth";
+                System.out.println("forth");
+                break;
             case 5:
-                return "fifth";
+                System.out.println("fifth");
+                break;
             case 6:
-                return "sixth";
+                System.out.println("sixth");
+                break;
             case 7:
-                return "seventh";
+                System.out.println("seventh");
+                break;
             case 8:
-                return "eighth";
+                System.out.println("eighth");
+                break;
             case 9:
-                return "ninth";
+                System.out.println("ninth");
+                break;
             case 10:
-                return "tenth";
+                System.out.println("tenth");
+                break;
             case 11:
-                return "eleventh";
+                System.out.println("eleventh");
+                break;
             case 12:
-                return "twelfth";
+                System.out.println("twelfth");
+                break;
         }
-        throw new IllegalArgumentException("the mouth should between 1 to 12");
 
     }
 
-    private static String sentence(int n) {
+    private static void sentence(int n) {
         switch (n) {
-            case 1:
-                return "And a partridge in a pear tree.";
-            case 2:
-                return "Two turtle doves,\n" + sentence(n - 1);
-            case 3:
-                return "Three French hens,\n" + sentence(n - 1);
-            case 4:
-                return "Four calling birds,\n" + sentence(n - 1);
-            case 5:
-                return "Five golden rings,\n" + sentence(n - 1);
-            case 6:
-                return "Six geese a-laying,\n" + sentence(n - 1);
-            case 7:
-                return "Seven swans a-swimming,\n" + sentence(n - 1);
-            case 8:
-                return "Eight maids a-milking,\n" + sentence(n - 1);
-            case 9:
-                return "Nine ladies dancing,\n" + sentence(n - 1);
-            case 10:
-                return "Ten lords a-leaping,\n" + sentence(n - 1);
-            case 11:
-                return "Eleven pipers piping,\n" + sentence(n - 1);
             case 12:
-                return "Twelve drummers drumming,\n" + sentence(n - 1);
+                System.out.print("Twelve drummers drumming,\n");
+            case 11:
+                System.out.print("Eleven pipers piping,\n");
+            case 10:
+                System.out.print("Ten lords a-leaping,\n");
+            case 9:
+                System.out.print("Nine ladies dancing,\n");
+            case 8:
+                System.out.print("Eight maids a-milking,\n");
+            case 7:
+                System.out.print("Seven swans a-swimming,\n");
+            case 6:
+                System.out.print("Six geese a-laying,\n");
+            case 5:
+                System.out.print("Five golden rings,\n");
+            case 4:
+                System.out.print("Four calling birds,\n");
+            case 3:
+                System.out.print("Three French hens,\n");
+            case 2:
+                System.out.print("Two turtle doves,\n");
+            case 1:
+                System.out.println("And a partridge in a pear tree.");
         }
 
-        throw new IllegalArgumentException("the mouth should between 1 to 12");
     }
 }
