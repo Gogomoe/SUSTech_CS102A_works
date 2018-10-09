@@ -43,7 +43,4 @@ public class Diamond {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(diamond(7, '*', '.'));
-    }
 }
