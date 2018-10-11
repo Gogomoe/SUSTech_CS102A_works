@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class P1006 {
+public class P1001 {
 
     private static int[] fib = new int[10];
 

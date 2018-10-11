@@ -15,15 +15,21 @@ dependencies {
 }
 
 task testAll {
-    ["P1003", "P1006"].forEach {
+    ["P1003", "P1001"].forEach {
         def program = it
 
-        javaexec {
-            classpath = sourceSets.main.runtimeClasspath
-            main = program
-            standardInput = new FileInputStream("${program}.in")
-            standardOutput = new FileOutputStream("${buildDir}/${program}.res")
+        try {
+            javaexec {
+                classpath = sourceSets.main.runtimeClasspath
+                main = program
+                standardInput = new FileInputStream("${program}.in")
+                standardOutput = new FileOutputStream("${buildDir}/${program}.res")
+            }
+        } catch (Exception e) {
+            e.printStackTrace()
+            return
         }
+
 
         def res = new FileReader("${buildDir}/${program}.res").readLines()
         def out = new FileReader("${program}.out").readLines()
@@ -39,5 +45,6 @@ task testAll {
         println "${program} Accept"
     }
 
-
 }
+
+testAll.dependsOn classes
