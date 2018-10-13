@@ -1,7 +1,9 @@
 ### 简介
 南方科技大学 计算机程序设计基础 A CS102A 班作业
 
-lab开头的是实验课的作业，exercises开头的是大课作业
+assignment是实验课的作业，exercise是大课作业
+
+会在deadline后更新，如果有问题可以发issue或者私聊
 
 欢迎各位同学前来学习、交流
 
@@ -13,8 +15,10 @@ lab开头的是实验课的作业，exercises开头的是大课作业
 
 This repository contains solutions of assignments in `Introduction to Computer Programming A` of SUSTC.
 
-The modules with prefix "lab" are assignments of Lab class.
+The modules with prefix "assignment" are assignments of Lab class.
 With prefix "exercises" are assignments of Lecture class.
+
+Update after deadline, please open issues if you have any questions.
 
 Welcome to communicate.
 
