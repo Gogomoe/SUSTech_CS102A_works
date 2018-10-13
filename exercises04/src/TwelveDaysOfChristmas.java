@@ -7,54 +7,20 @@ public class TwelveDaysOfChristmas {
         System.out.println();
 
         for (int i = 2; i <= 12; i++) {
-            System.out.print("On the ");
-            ordinal(i);
+            System.out.println("On the " + ordinal(i) + " day of Christmas,");
             System.out.println("My true love gave to me");
             sentence(i);
             System.out.println();
         }
     }
 
-    private static void ordinal(int n) {
-        switch (n) {
-            case 1:
-                System.out.println("first");
-                break;
-            case 2:
-                System.out.println("second");
-                break;
-            case 3:
-                System.out.println("third");
-                break;
-            case 4:
-                System.out.println("forth");
-                break;
-            case 5:
-                System.out.println("fifth");
-                break;
-            case 6:
-                System.out.println("sixth");
-                break;
-            case 7:
-                System.out.println("seventh");
-                break;
-            case 8:
-                System.out.println("eighth");
-                break;
-            case 9:
-                System.out.println("ninth");
-                break;
-            case 10:
-                System.out.println("tenth");
-                break;
-            case 11:
-                System.out.println("eleventh");
-                break;
-            case 12:
-                System.out.println("twelfth");
-                break;
-        }
+    private static String[] ordinals = new String[]{
+            "first", "second", "third", "forth", "fifth", "sixth", "seventh", "eighth",
+            "ninth", "tenth", "eleventh", "twelfth"
+    };
 
+    private static String ordinal(int n) {
+        return ordinals[n - 1];
     }
 
     private static void sentence(int n) {
