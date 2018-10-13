@@ -18,7 +18,7 @@ dependencies {
 task runEvaluations {
     dependsOn classes
     doLast {
-        evaluateAll("A2Q1", "A2Q2", "A2Q3", "A2Q4")
+        evaluateAll("A2Q1", "A2Q2", "A2Q3", "A2Q4", "A2Q5", "A2Q6", "A2Q7")
     }
 }
 
