@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'moe.gogo'
-version '0.0.0'
+version '0'
 
 sourceCompatibility = 1.8
 

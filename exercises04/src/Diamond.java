@@ -6,12 +6,10 @@ public class Diamond {
 
     public static String diamond(int n) {
         return diamond(n, '*');
-
     }
 
     public static String diamond(int n, char flash) {
         return diamond(n, flash, ' ');
-
     }
 
     public static String diamond(int n, char flash, char blank) {

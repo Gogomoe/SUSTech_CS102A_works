@@ -1,0 +1,86 @@
+plugins {
+    id 'java'
+}
+
+group 'moe.gogo'
+version '0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+
+task runEvaluations {
+    dependsOn classes
+    doLast {
+        evaluateAll("A2Q1", "A2Q2", "A2Q3", "A2Q4")
+    }
+}
+
+def evaluateAll(String... mains) {
+    mains.each {
+        def program = it
+        try {
+            evaluateProgram(program)
+            handleAccept(program)
+        } catch (Exception e) {
+            handleError(e, program)
+        }
+    }
+}
+
+private void evaluateProgram(program) {
+    javaexec {
+        classpath = sourceSets.main.runtimeClasspath
+        main = program
+        standardInput = new FileInputStream("${program}.in")
+        standardOutput = new FileOutputStream("${buildDir}/${program}.res")
+    }
+
+    compareResult(program)
+}
+
+private void compareResult(program) {
+    def res = resultFile(program).readLines()
+    def out = answerFile(program).readLines()
+
+    if (res.size() != out.size()) {
+        throw new RuntimeException("${program} Wrong Answer")
+    }
+    for (int i = 0; i < res.size(); i++) {
+        if (res.get(i).trim() != out.get(i).trim()) {
+            throw new RuntimeException("${program} Wrong Answer")
+        }
+    }
+}
+
+private handleAccept(program) {
+    println "\u001B[32m${program} Accept\u001B[0m"
+}
+
+private void handleError(Exception e, program) {
+    print "\u001B[31m"
+    if (e.message.endsWith("Wrong Answer")) {
+        println e.message
+        println "your result is"
+        println resultFile(program).text
+        println "correct answer is"
+        println answerFile(program).text
+    } else {
+        println "${program} Error"
+    }
+    print "\u001B[0m"
+}
+
+private File resultFile(String program) {
+    new File("${buildDir}/${program}.res")
+}
+
+private File answerFile(String program) {
+    new File("${program}.out")
+}
