@@ -13,8 +13,8 @@ public class A2Q4 {
 
     private static void findMax() {
         int n = scanner.nextInt();
-        int maxSum = 0;
-        int currSum = 0;
+        long maxSum = 0;
+        long currSum = 0;
         int maxValue = Integer.MIN_VALUE;
         for (int i = 0; i < n; i++) {
             int it = scanner.nextInt();

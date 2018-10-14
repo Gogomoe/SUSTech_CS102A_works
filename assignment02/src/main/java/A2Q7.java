@@ -36,15 +36,14 @@ public class A2Q7 {
                         break;
                     case "wear":
                         wears = deque.pollLast();
+                        System.out.println(wears + " " + deque.size());
                         break;
                 }
             }
-            System.out.println(wears + " " + deque.size());
+            wash.add(wears);
             deque.addAll(wash);
-            deque.add(wears);
             wash.clear();
         }
     }
-
 
 }

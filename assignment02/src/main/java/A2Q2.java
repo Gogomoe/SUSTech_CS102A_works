@@ -13,9 +13,9 @@ public class A2Q2 {
 
     private static void product() {
         int n = scanner.nextInt();
-        int product = 1;
+        long product = 1;
         for (int i = 0; i < n; i++) {
-            int index = scanner.nextInt();
+            long index = scanner.nextLong();
             if (isOdd(index)) {
                 product *= value(index);
             }
@@ -23,14 +23,14 @@ public class A2Q2 {
         System.out.println(product);
     }
 
-    private static boolean isOdd(int index) {
+    private static boolean isOdd(long index) {
         return (index & 1) == 1;
     }
 
     private static int[] series = new int[]{9, 3, 5, 7, 2, 9, 3, 5, 7, 2};
 
-    private static int value(int index) {
-        return series[(index - 1) % 10];
+    private static int value(long index) {
+        return series[(int) ((index - 1) % 10)];
     }
 
 }
