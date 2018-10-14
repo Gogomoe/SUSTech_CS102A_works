@@ -18,7 +18,8 @@ dependencies {
 task runEvaluations {
     dependsOn classes
     doLast {
-        evaluateAll("A2Q1", "A2Q2", "A2Q3", "A2Q4", "A2Q5", "A2Q6", "A2Q7")
+        def programs = findAllProgram()
+        evaluateAll(*programs)
     }
 }
 
@@ -34,7 +35,15 @@ def evaluateAll(String... mains) {
     }
 }
 
-private void evaluateProgram(program) {
+def findAllProgram() {
+    return fileTree('src') { include("**/*.java") }
+            .filter { File it -> it.text.contains("public static void main(String[] args)") }
+            .toList()
+            .collect { it.name.replace(".java", "") }
+
+}
+
+private void evaluateProgram(String program) {
     javaexec {
         classpath = sourceSets.main.runtimeClasspath
         main = program
@@ -45,7 +54,7 @@ private void evaluateProgram(program) {
     compareResult(program)
 }
 
-private void compareResult(program) {
+private void compareResult(String program) {
     def res = resultFile(program).readLines()
     def out = answerFile(program).readLines()
 
@@ -63,7 +72,7 @@ private handleAccept(program) {
     println "\u001B[32m${program} Accept\u001B[0m"
 }
 
-private void handleError(Exception e, program) {
+private void handleError(Exception e, String program) {
     print "\u001B[31m"
     if (e.message.endsWith("Wrong Answer")) {
         println e.message
