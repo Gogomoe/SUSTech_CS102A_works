@@ -17,12 +17,12 @@ public class SolveLinearEquations {
         double[][] a = new double[2][2];
         double[] b = new double[2];
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a00, a01, b0, a10, a11, b1: ");
+        System.out.print("Enter a00, a01, a10, a11, b0, b1: ");
         a[0][0] = scanner.nextDouble();
         a[0][1] = scanner.nextDouble();
-        b[0] = scanner.nextDouble();
         a[1][0] = scanner.nextDouble();
         a[1][1] = scanner.nextDouble();
+        b[0] = scanner.nextDouble();
         b[1] = scanner.nextDouble();
 
         double[] res = linearEquation(a, b);
@@ -31,6 +31,10 @@ public class SolveLinearEquations {
         } else {
             System.out.printf("x is %f and y is %f", res[0], res[1]);
         }
+    }
+
+    public static void main(String[] args) {
+        test();
     }
 
 }
