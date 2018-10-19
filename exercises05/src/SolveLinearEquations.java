@@ -33,8 +33,4 @@ public class SolveLinearEquations {
         }
     }
 
-    public static void main(String[] args) {
-        test();
-    }
-
 }

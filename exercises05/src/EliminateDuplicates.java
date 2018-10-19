@@ -6,10 +6,10 @@ public class EliminateDuplicates {
     public static int[] eliminateDuplicates(int[] list) {
         Set<Integer> set = new HashSet<>();
         List<Integer> newList = new ArrayList<>();
-        for (int i = 0; i < list.length; i++) {
-            if (!set.contains(list[i])) {
-                set.add(list[i]);
-                newList.add(list[i]);
+        for (int aList : list) {
+            if (!set.contains(aList)) {
+                set.add(aList);
+                newList.add(aList);
             }
         }
         return newList.stream().mapToInt(it -> it).toArray();

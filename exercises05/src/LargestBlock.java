@@ -1,6 +1,4 @@
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class LargestBlock {
 
@@ -39,20 +37,24 @@ public class LargestBlock {
 
     private static int countSubmatrix(int[][] matrix, int y, int x) {
         int size = 2;
-        Set<Integer> set = new HashSet<>();
         Outer:
         while (true) {
-            for (int i = y; i < y + size; i++) {
-                for (int j = x; j < x + size; j++) {
-                    if (!(i < matrix.length && j < matrix.length)) {
-                        break Outer;
-                    }
-                    set.add(matrix[i][j]);
-                }
-            }
-            if (set.size() != 1) {
+            int nx = x + size - 1;
+            int ny = y + size - 1;
+            if (!(nx < matrix.length && ny < matrix.length)) {
                 break;
             }
+            for (int i = x; i <= nx; i++) {
+                if (matrix[ny][i] == 0) {
+                    break Outer;
+                }
+            }
+            for (int i = y; i <= ny; i++) {
+                if (matrix[i][nx] == 0) {
+                    break Outer;
+                }
+            }
+
             size++;
         }
         return size - 1;
