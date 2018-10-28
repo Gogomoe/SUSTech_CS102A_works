@@ -62,7 +62,7 @@ public class Q6 {
                 case L:
                     return U;
             }
-            throw new RuntimeException("This case is not exist");
+            return U;
         }
     }
 

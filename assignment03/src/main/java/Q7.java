@@ -111,7 +111,7 @@ public class Q7 {
             }
         }
 
-        public void apply() {
+        void apply() {
             for (int i = offset; i < offsetH; i++) {
                 for (int j = offset; j < offsetW; j++) {
                     double sum = 0;
