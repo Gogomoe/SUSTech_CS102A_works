@@ -27,11 +27,13 @@ task("runEvaluations") {
     }
 }
 
-fun evaluateAll(vararg mains: String) {
+typealias Program = String
+
+fun evaluateAll(vararg mains: Program) {
     mains.forEach {
         val program = it
         try {
-            evaluateProgram(program)
+            program.eval()
             handleAccept(program)
         } catch (e: Exception) {
             handleError(e, program)
@@ -39,59 +41,60 @@ fun evaluateAll(vararg mains: String) {
     }
 }
 
-fun findAllProgram(): List<String> {
+fun findAllProgram(): List<Program> {
     return fileTree("src") { include("**/*.java") }
             .filter { it.readText().contains("public static void main(String[] args)") }
             .toList()
             .map { it.name.replace(".java", "") }
+            .filter { it.inputFile().exists() }
 
 }
 
-fun evaluateProgram(program: String) {
+fun Program.eval() {
     javaexec {
         classpath = java.sourceSets["main"].runtimeClasspath
-        main = program
-        standardInput = FileInputStream("src/main/resources/$program.in")
-        standardOutput = FileOutputStream("$buildDir/$program.res")
+        main = this@eval
+        standardInput = FileInputStream("src/main/resources/$main.in")
+        standardOutput = FileOutputStream("$buildDir/$main.res")
     }
 
-    compareResult(program)
+    this.compareResult()
 }
 
-fun compareResult(program: String) {
-    val res = resultFile(program).readLines()
-    val out = answerFile(program).readLines()
+fun Program.compareResult() {
+    val res = resultFile().readLines()
+    val out = answerFile().readLines()
 
     if (res.size != out.size) {
-        throw RuntimeException("$program Wrong Answer")
+        throw RuntimeException("$this Wrong Answer")
     }
     for (i in 0 until res.size) {
         if (res[i].trim() != out[i].trim()) {
-            throw  RuntimeException("$program Wrong Answer")
+            throw  RuntimeException("$this Wrong Answer")
         }
     }
 }
 
-fun handleAccept(program: String) {
+fun handleAccept(program: Program) {
     println("\u001B[32m$program Accept\u001B[0m")
 }
 
-fun handleError(e: Exception, program: String) {
+fun handleError(e: Exception, program: Program) {
     print("\u001B[31m")
     if (e.message!!.endsWith("Wrong Answer")) {
         println(e.message)
         println("your result is")
-        println(resultFile(program).readText())
+        println(program.resultFile().readText())
         println("correct answer is")
-        println(answerFile(program).readText())
+        println(program.answerFile().readText())
     } else {
         println("$program Error")
     }
     print("\u001B[0m")
 }
 
-fun inputFile(program: String): File = File("src/main/resources/$program.in")
+fun Program.inputFile(): File = File("src/main/resources/$this.in")
 
-fun resultFile(program: String): File = File("$buildDir/$program.res")
+fun Program.resultFile(): File = File("$buildDir/$this.res")
 
-fun answerFile(program: String): File = File("src/main/resources/$program.out")
+fun Program.answerFile(): File = File("src/main/resources/$this.out")
