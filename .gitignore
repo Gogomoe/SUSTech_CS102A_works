@@ -1,7 +1,8 @@
 *.pdf
 *.zip
 *.iml
-*/out
+**/out
+**/.gradle
 .idea
 
 !exercises*.pdf
