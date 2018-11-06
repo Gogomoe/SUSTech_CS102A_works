@@ -1,5 +1,5 @@
 ### 简介
-南方科技大学 计算机程序设计基础 A CS102A 班作业
+南方科技大学 2018 计算机程序设计基础 A CS102A 班作业
 
 assignment是实验课的作业，exercise是大课作业
 
@@ -13,12 +13,12 @@ assignment是实验课的作业，exercise是大课作业
 
 ### Introduce
 
-This repository contains solutions of assignments in `Introduction to Computer Programming A` of SUSTC.
+This repository contains solutions of assignments in `Introduction to Computer Programming A 2018` of SUSTC.
 
 The modules with prefix "assignment" are assignments of Lab class.
 With prefix "exercises" are assignments of Lecture class.
 
-Update after deadline, please open issues if you have any questions.
+Update after the deadline, please open issues if you have any questions.
 
 Welcome to communicate.
 
