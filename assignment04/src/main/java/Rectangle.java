@@ -1,13 +1,7 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.awt.*;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-
-/*
-  TODO 或许提交的时候需要删掉 NotNull
- */
 
 public class Rectangle {
 
@@ -16,16 +10,14 @@ public class Rectangle {
     private double width;
     private double height;
 
-    private int red;
-    private int green;
-    private int blue;
+    private Color color;
 
     public Rectangle(double x, double y) {
         this(x, y, 1, 1);
     }
 
     public Rectangle(double x, double y, double width, double height) {
-        this(x, y, width, height, 100, 100, 200);
+        this(x, y, width, height, 100, 100, 100);
     }
 
     /**
@@ -44,9 +36,7 @@ public class Rectangle {
         this.y = y;
         this.width = width;
         this.height = height;
-        setRed(red);
-        setGreen(green);
-        setBlue(blue);
+        this.color = new Color(colorBounds(red), colorBounds(green), colorBounds(blue));
     }
 
     /**
@@ -55,10 +45,7 @@ public class Rectangle {
      * @param other
      * @return {@code true} if this {@code Rectangle} intersect with another
      */
-    public boolean intersect(@NotNull Rectangle other) {
-        /*
-         * TODO: 边界重合算不算相交？
-         */
+    public boolean intersect(Rectangle other) {
         double left1 = x - width / 2;
         double right1 = x + width / 2;
         double upper1 = y + height / 2;
@@ -88,7 +75,7 @@ public class Rectangle {
      * @param r2
      * @return {@code true} if two {@code Rectangle}s intersect with the other
      */
-    public static boolean intersect(@NotNull Rectangle r1, @NotNull Rectangle r2) {
+    public static boolean intersect(Rectangle r1, Rectangle r2) {
         return r1.intersect(r2);
     }
 
@@ -127,7 +114,7 @@ public class Rectangle {
         if (!isValid()) {
             return;
         }
-        StdDraw.setPenColor(new Color(red, green, blue));
+        StdDraw.setPenColor(color);
         StdDraw.filledRectangle(x, y, width / 2, height / 2);
 
     }
@@ -135,14 +122,18 @@ public class Rectangle {
     @Override
     public String toString() {
         return "Centre[" +
-                "" + x +
-                "," + y +
-                "] Shape[" + width +
-                "," + height +
-                "] Color[" + red +
-                "," + green +
-                "," + blue +
+                "" + formatDouble(x) +
+                "," + formatDouble(y) +
+                "] Shape[" + formatDouble(width) +
+                "," + formatDouble(height) +
+                "] Color[" + color.getRed() +
+                "," + color.getGreen() +
+                "," + color.getBlue() +
                 "]";
+    }
+
+    private String formatDouble(double value) {
+        return String.format("%.1f", value);
     }
 
     public double getX() {
@@ -177,43 +168,12 @@ public class Rectangle {
         this.height = height;
     }
 
-    public int getRed() {
-        return red;
+    public Color getColor() {
+        return color;
     }
 
-    /**
-     * The {@code red} {@code green} and {@code blue} will be ranged in [0, 255]
-     *
-     * @param red
-     */
-    public void setRed(int red) {
-        this.red = colorBounds(red);
-    }
-
-    public int getGreen() {
-        return green;
-    }
-
-    /**
-     * The {@code red} {@code green} and {@code blue} will be ranged in [0, 255]
-     *
-     * @param green
-     */
-    public void setGreen(int green) {
-        this.green = colorBounds(green);
-    }
-
-    public int getBlue() {
-        return blue;
-    }
-
-    /**
-     * The {@code red} {@code green} and {@code blue} will be ranged in [0, 255]
-     *
-     * @param blue
-     */
-    public void setBlue(int blue) {
-        this.blue = colorBounds(blue);
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     private static int colorBounds(int color) {

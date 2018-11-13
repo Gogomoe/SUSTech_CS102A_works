@@ -38,9 +38,6 @@ Test Date
 public class DrawRectangle {
 
     public static void main(String[] args) {
-        /*
-          TODO 问下他们编译的时候会不会把别的文件都带上=。=
-         */
         List<Rectangle> rects = RectangleTest.readRectangles();
 
         StdDraw.setXscale(-10, 10);

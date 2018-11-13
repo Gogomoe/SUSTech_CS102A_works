@@ -1,19 +1,21 @@
-import org.jetbrains.annotations.NotNull;
-
 import java.util.*;
 
 /*
 Test Date
 
--10,-10,1,2
-0,0,3,3,100,100,100
-0,1,2,5,130,22,444
-5,5,-3,-5
-5,5,2,2,30,100,250
--3,5,5,10,40,20,330
-2,3
+9.27,6.61,3,7.18,209,144,247
+3.4,4.0,4.5,4.5,100,100,100
+-2.89,7.61,5.57,5.06
+8.43,6.66
+7.42,0.68,2.07,2.93,78,39,165
+6.70,1.54,3.52,3.12
+1.14,0.76,2.37,3.07,236,105,137
+1.06,-0.80,3.03,2.66,132,120,273
+3.01,-9.08,2.76,2.36,138,148,119
+-0.51,-4.99,6.42,5.65
+-4.36,8.70,3.03,2.63,16,138,221
+9.40,2.41,6.47,4.90
 
-TODO: 这里测试样例和答案好像有问题
  */
 public class RectangleTest {
 
@@ -27,7 +29,6 @@ public class RectangleTest {
             if (rect.isValid()) {
                 if (fistValidRect == null) {
                     fistValidRect = rect;
-                    System.out.println(rect);
                 } else if (!rect.intersect(fistValidRect)) {
                     System.out.println(rect);
                 }
@@ -36,7 +37,6 @@ public class RectangleTest {
 
     }
 
-    @NotNull
     public static List<Rectangle> readRectangles() {
         System.out.println("Please press Ctrl + D to end input");
 
@@ -52,7 +52,6 @@ public class RectangleTest {
         return rects;
     }
 
-    @NotNull
     private static Rectangle parseRectangle(String line, String[] parts) {
         if (parts.length == 2) {
             double[] position = getPosition(parts);
