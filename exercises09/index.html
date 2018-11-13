@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <title>Cay Horstmann's Home Page</title> 
+    <link type='text/css' rel='stylesheet' href='styles.css'/> 
+    <meta content='text/html; charset=UTF-8' http-equiv='content-type'/> 
+  </head> 
+  <body>
+    <h1 style='color: #9090A0;'>Welcome to Cay Horstmann’s Home Page!<img class='sideimage' src='images/cay-rowing.gif' alt='Photo of Cay Horstmann'/></h1> 
+    <p><a href='mailto:cay@horstmann.com'>cay@horstmann.com</a> | <a href='http://horstmann.com/caypubkey.txt'>PGP Key</a></p> 
+    <p>I grew up in Northern Germany and attended the <a href='http://www.uni-kiel.de/'>Christian-Albrechts-Universität</a> in <a href='http://www.kiel.de/'>Kiel</a>, a harbor town at the Baltic sea. I received a M.S. in computer science from <a href='http://www.syr.edu/'>Syracuse University</a>, and a Ph.D. in mathematics from the <a href='http://www.umich.edu/'>University of Michigan</a> in Ann Arbor. For four years, I was VP and CTO of an Internet startup that went from 3 people in a tiny office to a public company. I now teach computer science at <a href='http://www.mathcs.sjsu.edu/'>San Jose State University</a> and held visiting appointments at universities in Switzerland, Vietnam, and Macau. In my copious spare time I write books and articles on programming languages and computer science education.</p> 
+    <h2>Links</h2> 
+    <ul>
+      <li><a href='unblog/index.html'>My unblog</a></li> 
+      <li><a href='https://plus.google.com/117406678785944293188/posts'>My Google+ page</a></li> 
+      <li><a href='http://www.sjsu.edu/people/cay.horstmann'>My SJSU course page</a></li> 
+      <li><a href='http://horstmann.com/quotes.html'>Memorable quotes</a></li> 
+      <li><a href='http://horstmann.com/resume.html'>My resume</a> </li> 
+      <li>Fellow Horstmanns who are interested in the family genealogy may want to turn to <a href='http://www.family-horstmann.net/'>Bernhard Horstmann's site</a></li> 
+    </ul> 
+    <h2>Books</h2> 
+    <ul>
+      <li><a href='http://horstmann.com/bigjava.html'>Big Java</a> | <a href='http://horstmann.com/bigjava.html'>Java Concepts</a> | <a href='http://horstmann.com/bjlo.html'>Big Java Late Objects</a> | <a href='http://horstmann.com/bjlo.html'>Java Concepts Late Objects</a> | <a href='http://www.wiley.com/college/sc/horstmann/'>Interactive e-book version</a></li> 
+      <li><a href='http://horstmann.com/bigcpp.html'>Big C++</a> | <a href='http://horstmann.com/bigcpp.html'>Brief C++</a> (former titles: “C++ for Everyone” and “Computing Concepts with C++ Essentials”)</li> 
+      <li><a href='http://horstmann.com/javaimpatient/index.html'>Core Java for the Impatient</a></li> 
+      <li><a href='http://horstmann.com/java8/index.html'>Java SE 8 for the Really Impatient</a></li> 
+      <li><a href='http://horstmann.com/scala/index.html'>Scala for the Impatient</a></li> 
+      <li><a href='http://horstmann.com/python4everyone.html'>Python for Everyone</a></li> 
+      <li><a href='http://horstmann.com/corejava.html'>Core Java</a></li> 
+      <li><a href='http://corejsf.com/'>Core JavaServer Faces</a></li> 
+      <li><a href='http://horstmann.com/design_and_patterns.html'>OO Design &amp; Patterns</a></li> 
+      <li><a href='http://horstmann.com/PracticalOO.html'>Practical Object-Oriented Development with C++ and Java</a></li> 
+      <li><a href='http://horstmann.com/mood.html'>Mastering Object-Oriented Design in C++</a></li> 
+      <li><a href='http://horstmann.com/mcpp.html'>Mastering C++</a></li> 
+    </ul> 
+    <h2>The March of Progress</h2> 
+    <dl>
+      <dt>1980: C </dt> 
+      <dd>
+        <pre>printf("%10.2f", x);</pre> 
+      </dd> 
+      <dt>1988: C++</dt> 
+      <dd>
+        <pre>cout &lt;&lt; setw(10) &lt;&lt; setprecision(2) &lt;&lt; fixed &lt;&lt; x;</pre> 
+      </dd> 
+      <dt>1996: Java</dt> 
+      <dd>
+        <pre>java.text.NumberFormat formatter = java.text.NumberFormat.getNumberInstance(); 
+formatter.setMinimumFractionDigits(2); 
+formatter.setMaximumFractionDigits(2); 
+String s = formatter.format(x); 
+for (int i = s.length(); i &lt; 10; i++) System.out.print(' '); 
+System.out.print(s);</pre> 
+      </dd> 
+      <dt>2004: Java</dt> 
+      <dd>
+        <pre>System.out.printf("%10.2f", x);</pre> 
+      </dd> 
+      <dt>2008: Scala and Groovy</dt> 
+      <dd>
+        <pre>printf("%10.2f", x)</pre> 
+        <p>(Thanks to Will Iverson for the update. He writes: “Note the lack of semi-colon. Improvement!”)</p> 
+      </dd> 
+      <dt>2012: Scala 2.10</dt> 
+      <dd>
+        <pre>println(f"$x%10.2f")</pre> 
+        <p>(Thanks to Dominik Gruntz for the update, and to Paul Phillips for pointing out that this is the first version that is checked at compile time. Now that's progress.)</p> 
+      </dd> 
+    </dl> 
+    <h2>Programming and Software</h2> 
+    <ul>
+      <li><a href='http://codecheck.it'>CodeCheck</a>, a convention-over-configuration autograder for Java, Scala, Python and C/C++.</li> 
+      <li><a href='http://horstmann.com/violet/index.html'><img title='' style='border: 0px solid ; width: 73px; height: 76px;' src='images/violet.jpg' alt=''/> Violet</a> is a free, easy to use UML editor.</li> 
+      <li><a href='http://horstmann.com/safestl.html'>Safe STL</a> is a safe version of the original HP STL implementation. For a modern safe version of STL, check out Boris Fomitchev's <a href='http://www.stlport.org/'>STLport</a>. </li> 
+      <li><a href='http://horstmann.com/cpp/pitfalls.html'>C++ Pitfalls</a></li> 
+      <li><a href='http://horstmann.com/cpp/iostreams.html'>C++ Iostreams</a></li> 
+      <li><img width='99' height='78' src='images/zork1.gif' alt='Zork 1 Logo'/> Are you frequently trapped in boring meetings? Are you a fan of the Great Underground Empire? Download a z-machine interpreter for your favorite device (for example <a href='http://code.google.com/p/twisty/'>Android</a> or <a href='http://frotz.sourceforge.net/'>Linux</a>) and the <a href='https://web.archive.org/web/20130603210425/http://www.csd.uwo.ca/Infocom/'>Zork games</a> from Peter Scheyen's Infocom page, and make your meetings more productive.</li> 
+    </ul> 
+    <h2>Fun Applets</h2> 
+    <p>Check them out to see what was exciting circa 1995.</p> 
+    <ul>
+      <li><a href='http://horstmann.com/applets/RoadApplet/RoadApplet.html'>Traffic jam simulator.</a> This is an applet that is fascinating or depressing, depending on your outlook. It simulates the traffic flow on a freeway and shows how traffic jams are inevitable even at modest loads if too many people don't maintain their speed.</li> 
+      <li><a href='http://horstmann.com/applets/Retire/Retire.html'>Retirement calculator.</a> This applet calculates how much money you will have left for your well-deserved retirement, under various savings scenarios. Another one of those fascinating/depressing applets. From the first edition of <a href='http://horstmann.com/corejava.html'>Core Java</a>.</li> 
+      <li><a href='http://horstmann.com/applets/WeatherApplet/WeatherApplet.html'>Weather report</a>. Get an up-to-date weather report the hard way. Also from the first edition of <a href='http://horstmann.com/corejava.html'>Core Java</a>.</li> 
+      <li><a href='http://horstmann.com/applets/Intersection/Intersection.html'>Traffic light simulation.</a> This is an applet that I wrote for David Bellin's CRC book. It simulates traffic signals at an intersection.</li> 
+    </ul> 
+  </body>
+</html>
+It simulates the traffic flow on a freeway and shows how traffic jams are inevitable even at modest loads if too many people don't maintain their speed.</li> 
+      <li><a href='http://horstmann.com/applets/Retire/Retire.html'>Retirement calculator.</a> This applet calculates how much money you will have left for your well-deserved retirement, under various savings scenarios. Another one of those fascinating/depressing applets. From the first edition of <a href='http://horstmann.com/corejava.html'>Core Java</a>.</li> 
+      <li><a href='http://horstmann.com/applets/WeatherApplet/WeatherApplet.html'>Weather report</a>. Get 
