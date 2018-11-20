@@ -1,0 +1,53 @@
+{
+  "histograma" : {
+
+    "formats" : {
+      "margins" : [0.15, 0.25, 0.1, 0.1],
+
+      "isbarfilled" : true,
+      "barfillcolor" : [53, 122, 232],
+
+      "hasbarframe" : false,
+      "barframecolor" : [248, 248, 248],
+
+      "hasborder" : true,
+      "bordercolor" : [53, 122, 232],
+
+      "rulercolor" : [77, 144, 254],
+      "rulermarkcolor" : [77, 144, 254],
+      "hasrightruler" : true,
+      "rulerfont" : {
+        "font" : "Microsoft YaHei",
+        "size" : 12
+      },
+
+      "keycolor" : [77, 144, 254],
+      "keyfont" : {
+        "font" : "Microsoft YaHei",
+        "size" : 12
+      },
+
+      "hasheader" : true,
+      "headercolor" : [53, 122, 232],
+      "headerfont" : {
+        "font" : "Microsoft YaHei",
+        "size" : 20
+      },
+      "headeroffset" : [0.5, 0.5],
+
+      "hasfooter" : true,
+      "footercolor" : [77, 144, 254],
+      "footerfont" : {
+        "font" : "Microsoft YaHei",
+        "size" : 16
+      },
+      "footeroffset" : [0.5, 0.5]
+
+    },
+
+    "data" : {
+      "minvalue": 0.0
+    }
+  }
+}
+
