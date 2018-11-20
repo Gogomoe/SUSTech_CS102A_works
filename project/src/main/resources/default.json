@@ -1,6 +1,14 @@
 {
   "histograma" : {
 
+    "canvas" : {
+      "size" : [1280, 720],
+      "xscale" : [0, 16.0],
+      "yscale" : [0, 9.0],
+      "bgcolor" : [255, 255, 255],
+      "color" : [77, 144, 254]
+    },
+
     "formats" : {
       "margins" : [0.15, 0.25, 0.1, 0.1],
 

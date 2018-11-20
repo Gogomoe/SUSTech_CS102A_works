@@ -14,7 +14,6 @@ public class HistogramATest {
     public static void main(String[] args) {
         HistogramA h = createHistogramAFrom(args[0]);
         h.draw();
-        System.out.println();
     }
 
     private static HistogramA createHistogramAFrom(String fileName) {
@@ -37,28 +36,17 @@ public class HistogramATest {
     private static Canvas getCanvasFrom(JsonObject obj) {
         Canvas canvas = new Canvas();
 
-        JsonArray szArray = obj.getJsonArray("size");
-        if (szArray != null) {  // otherwise, use the default size
-            int[] size = toIntArray(szArray);
-            canvas.x = size[0];
-            canvas.y = size[1];
-        }
+        DefalutValuesLoader.ValueGetter getter = DefalutValuesLoader.CANVAS;
+        getter.setValues(obj);
 
-        JsonArray xsArray = obj.getJsonArray("xscale");
-        if (xsArray != null)  // otherwise, use the default xScale
-            canvas.xScale = toDoubleArray(xsArray);
+        int[] size = toIntArray(getter.getJsonArray("size"));
+        canvas.x = size[0];
+        canvas.y = size[1];
 
-        JsonArray ysArray = obj.getJsonArray("yscale");
-        if (ysArray != null)  // otherwise, use the default yScale
-            canvas.yScale = toDoubleArray(ysArray);
-
-        JsonArray bgcArray = obj.getJsonArray("bgcolor");
-        if (bgcArray != null)  // otherwise, use the default bgColor
-            canvas.bgColor = getColorFrom(bgcArray);
-
-        JsonArray cArray = obj.getJsonArray("color");
-        if (cArray != null)    // otherwise, use the default color
-            canvas.color = getColorFrom(cArray);
+        canvas.xScale = toDoubleArray(getter.getJsonArray("xscale"));
+        canvas.yScale = toDoubleArray(getter.getJsonArray("yscale"));
+        canvas.bgColor = getColorFrom(getter.getJsonArray("bgcolor"));
+        canvas.color = getColorFrom(getter.getJsonArray("color"));
 
         return canvas;
     }
