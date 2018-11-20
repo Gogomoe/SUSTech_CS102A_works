@@ -48,15 +48,15 @@ class HistogramData {
 }
 
 public class HistogramA {
-    Canvas c;
-    Formats f;
-    HistogramData d;
-    double[] xValue;  // MIN, MAX
-    double[] yValue;  // MIN, MAX
-    double[] xScale;  // MIN, MAX
-    double[] yScale;  // MIN, MAX
-    int rulerGrade;
-    double rulerStep;
+    private Canvas c;
+    private Formats f;
+    private HistogramData d;
+    private double[] xValue;  // MIN, MAX
+    private double[] yValue;  // MIN, MAX
+    private double[] xScale;  // MIN, MAX
+    private double[] yScale;  // MIN, MAX
+    private int rulerGrade;
+    private double rulerStep;
 
     public HistogramA(Canvas c, Formats f, HistogramData d) {
         this.c = c;
