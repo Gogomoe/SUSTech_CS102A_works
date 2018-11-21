@@ -70,6 +70,23 @@ public class MultiDimensionalHistogram extends Histogram {
         }
     }
 
+    @Override
+    protected void plotKeys() {
+        StdDraw.setFont(formats.keyFont);
+        StdDraw.setPenColor(formats.keyColor);
+
+        int left = 0;
+        int right = 0;
+        final double y = chartYMin - 0.5 * rulerStep;
+        for (Group group : groups) {
+            right = left + group.items.size() - 1;
+            double x = (left + right) / 2.0;
+            StdDraw.text(x, y, group.name);
+            left = right + formats.groupMargin + 1;
+        }
+
+    }
+
     private void drawBar(int x, Item item) {
         StdDraw.setPenColor(item.property.color);
         if (formats.isBarFilled) {

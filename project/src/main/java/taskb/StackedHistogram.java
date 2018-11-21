@@ -10,4 +10,9 @@ public class StackedHistogram extends Histogram {
     protected void plotBars() {
 
     }
+
+    @Override
+    protected void plotKeys() {
+
+    }
 }
