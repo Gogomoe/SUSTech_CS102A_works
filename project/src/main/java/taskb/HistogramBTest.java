@@ -28,7 +28,7 @@ public class HistogramBTest {
             Canvas canvas = getCanvasFrom(obj.getJsonObject("canvas"));
             Formats fmts = getFormatsFrom(obj.getJsonObject("formats"));
 
-            JsonObject data = obj.getJsonObject("value");
+            JsonObject data = obj.getJsonObject("data");
             String header = data.getString("header");
             List<Property> properties = getProperties(data);
             List<Group> groups = getGroups(data, properties);
@@ -76,6 +76,7 @@ public class HistogramBTest {
                                 properties.get(j)
                         ));
             }
+            groups.add(group);
         }
 
         return groups;
@@ -104,7 +105,13 @@ public class HistogramBTest {
         getter.setValues(obj);
 
         Formats fmts = new Formats();
-        fmts.margins = toDoubleArray(getter.getJsonArray("margins"));
+
+        double[] margins = toDoubleArray(getter.getJsonArray("margins"));
+        fmts.topMargin = margins[0];
+        fmts.bottomMargin = margins[1];
+        fmts.leftMargin = margins[2];
+        fmts.rightMargin = margins[3];
+
         fmts.isBarFilled = getter.getBoolean("is_bar_filled");
         fmts.barFillColor = getColorFrom(getter.getJsonArray("bar_fill_color"));
         fmts.hasBarFrame = getter.getBoolean("has_bar_frame");
@@ -123,7 +130,12 @@ public class HistogramBTest {
         fmts.hasHeader = getter.getBoolean("has_header");
         fmts.headerColor = getColorFrom(getter.getJsonArray("header_color"));
         fmts.headerFont = getFontFrom(getter.getJsonObject("header_font"));
-        fmts.headerOffset = toDoubleArray(getter.getJsonArray("header_offset"));
+
+        double[] headerOffset = toDoubleArray(getter.getJsonArray("header_offset"));
+        fmts.headerOffsetX = headerOffset[0];
+        fmts.headerOffsetY = headerOffset[1];
+
+        fmts.groupMargin = getter.getJsonNumber("group-margin").intValue();
 
         return fmts;
     }

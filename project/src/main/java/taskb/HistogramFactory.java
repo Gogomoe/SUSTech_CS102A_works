@@ -4,7 +4,7 @@ public class HistogramFactory {
 
     static Histogram getHistogram(ChartType type) {
         switch (type) {
-            case MULTIDIMENSIONAL:
+            case MULTI_DIMENSIONAL:
                 return new MultiDimensionalHistogram();
             case STACKED:
                 return new StackedHistogram();
@@ -14,7 +14,7 @@ public class HistogramFactory {
     }
 
     enum ChartType {
-        MULTIDIMENSIONAL, STACKED
+        MULTI_DIMENSIONAL, STACKED
     }
 
 }

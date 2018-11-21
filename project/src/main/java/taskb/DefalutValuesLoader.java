@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class DefalutValuesLoader {
 
-    final static String defaultFile = "default.json";
+    final static String defaultFile = "default-b.json";
 
     static ValueGetter CANVAS;
     static ValueGetter FMTS;

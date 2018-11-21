@@ -1,0 +1,44 @@
+{
+  "histograma": {
+    "type": "MULTI_DIMENSIONAL",
+    "canvas": {
+      "size": [1280, 960],
+      "xscale": [0, 16.0],
+      "yscale": [0, 9.0],
+      "bgcolor": [255, 255, 255],
+      "color": [77, 144, 254]
+    },
+    "formats": {
+      "margins": [0.15, 0.25, 0.1, 0.1],
+      "is_bar_filled": true,
+      "bar_fill_color": [53, 122, 232],
+      "has_bar_frame": false,
+      "bar_frame_color": [248, 248, 248],
+      "has_border": true,
+      "border_color": [53, 122, 232],
+      "ruler_color": [77, 144, 254],
+      "ruler_mark_color": [77, 144, 254],
+      "has_right_ruler": true,
+      "ruler_font": {
+        "font": "Microsoft YaHei",
+        "size": 12
+      },
+      "key_color": [77, 144, 254],
+      "key_font": {
+        "font": "Microsoft YaHei",
+        "size": 20
+      },
+      "has_header" : true,
+      "header_color" : [53, 122, 232],
+      "header_font" : {
+        "font" : "Microsoft YaHei",
+        "size" : 28
+      },
+      "header_offset" : [0.5, 0.5],
+
+      "group-margin" : 2
+    }
+  }
+}
+
+

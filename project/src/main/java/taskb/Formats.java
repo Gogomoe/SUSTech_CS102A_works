@@ -3,7 +3,12 @@ package taskb;
 import java.awt.*;
 
 class Formats {
-    double[] margins = {0.15, 0.15, 0.1, 0.05};  // NORTH, SOUTH, WEST, EAST
+
+    double topMargin = 0.15;
+    double bottomMargin = 0.15;
+    double leftMargin = 0.15;
+    double rightMargin = 0.15;
+
     boolean isBarFilled = true;
     Color barFillColor = Color.BLACK;
     boolean hasBarFrame = true;
@@ -22,11 +27,9 @@ class Formats {
     boolean hasHeader = true;
     Color headerColor = Color.BLACK;
     Font headerFont = new Font("calibri", Font.PLAIN, 20);
-    double[] headerOffset = {0.5, 0.5};
+    double headerOffsetX = 0.5;
+    double headerOffsetY = 0.5;
 
-    boolean hasFooter = true;
-    Color footerColor = Color.BLACK;
-    Font footerFont = new Font("consolas", Font.PLAIN, 16);
-    double[] footerOffset = {0.5, 0.5};
+    int groupMargin = 2;
 
 }
