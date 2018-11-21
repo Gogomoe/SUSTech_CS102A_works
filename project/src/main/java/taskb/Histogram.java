@@ -1,5 +1,6 @@
 package taskb;
 
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,6 +33,11 @@ public abstract class Histogram {
         this.groups = groups;
         this.properties = properties;
         setHistogramParameters();
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | UnsupportedLookAndFeelException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void setHistogramParameters() {
@@ -68,8 +74,8 @@ public abstract class Histogram {
         StdDraw.setFont(formats.rulerFont);
         StdDraw.setPenColor(formats.rulerColor);
 
-        double x0 = chartXMin - 0.05;
-        double x1 = chartXMin + 0.05;
+        double x0 = chartXMin;
+        double x1 = chartXMax;
 
         String[] mark = new String[rulerGrade + 1];
         for (int i = 0; i <= rulerGrade; i++) {
@@ -77,6 +83,8 @@ public abstract class Histogram {
             mark[i] = numberForRuler(y);
             StdDraw.line(x0, y, x1, y);
         }
+
+        StdDraw.setPenColor(formats.rulerMarkColor);
         int len = maxMarkLength(mark);
         final double xs = windowXMin + 0.7 * (chartXMin - windowXMin);
         for (int i = 0; i <= rulerGrade; i++) {

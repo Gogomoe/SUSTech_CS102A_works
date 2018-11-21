@@ -21,7 +21,7 @@
       "hasborder" : true,
       "bordercolor" : [53, 122, 232],
 
-      "rulercolor" : [77, 144, 254],
+      "rulercolor" : [217, 217, 217],
       "rulermarkcolor" : [77, 144, 254],
       "hasrightruler" : true,
       "rulerfont" : {
