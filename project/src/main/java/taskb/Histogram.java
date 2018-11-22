@@ -110,18 +110,7 @@ public abstract class Histogram {
                 .getAsInt();
     }
 
-    protected void plotKeys() {
-        StdDraw.setFont(formats.keyFont);
-        StdDraw.setPenColor(formats.keyColor);
-        final double y = chartYMin - 0.5 * rulerStep;
-        for (int i = 0; i < groups.size(); i++) {
-            if (groups.get(i).name.trim().length() == 0) {
-                continue;
-            }
-            double x = i;
-            StdDraw.text(x, y, groups.get(i).name);
-        }
-    }
+    protected abstract void plotKeys();
 
     protected void plotBorder() {
         double x = .5 * (chartXMin + chartXMax);
