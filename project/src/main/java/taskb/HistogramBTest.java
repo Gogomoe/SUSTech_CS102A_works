@@ -135,6 +135,9 @@ public class HistogramBTest {
         fmts.headerOffsetX = headerOffset[0];
         fmts.headerOffsetY = headerOffset[1];
 
+        fmts.propertyColor = getColorFrom(getter.getJsonArray("property_color"));
+        fmts.propertyFont = getFontFrom(getter.getJsonObject("property_font"));
+
         fmts.groupMargin = getter.getJsonNumber("group-margin").intValue();
 
         return fmts;

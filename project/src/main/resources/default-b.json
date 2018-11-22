@@ -14,27 +14,33 @@
       "bar_fill_color": [53, 122, 232],
       "has_bar_frame": false,
       "bar_frame_color": [248, 248, 248],
-      "has_border": true,
+      "has_border": false,
       "border_color": [53, 122, 232],
-      "ruler_color": [77, 144, 254],
-      "ruler_mark_color": [77, 144, 254],
+      "ruler_color": [217, 217, 217],
+      "ruler_mark_color": [60, 60, 60],
       "has_right_ruler": true,
       "ruler_font": {
         "font": "Microsoft YaHei",
-        "size": 12
+        "size": 16
       },
-      "key_color": [77, 144, 254],
+      "key_color": [60, 60, 60],
       "key_font": {
-        "font": "Microsoft YaHei",
-        "size": 20
+        "font": "Microsoft YaHei Light",
+        "size": 32
       },
       "has_header" : true,
-      "header_color" : [53, 122, 232],
+      "header_color" : [60, 60, 60],
       "header_font" : {
-        "font" : "Microsoft YaHei",
-        "size" : 28
+        "font" : "Microsoft YaHei Light",
+        "size" : 36
       },
       "header_offset" : [0.5, 0.5],
+
+      "property_color" : [60, 60, 60],
+      "property_font" : {
+        "font" : "Microsoft YaHei",
+        "size" : 20
+      },
 
       "group-margin" : 2
     }

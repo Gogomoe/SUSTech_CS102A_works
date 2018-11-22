@@ -30,6 +30,9 @@ class Formats {
     double headerOffsetX = 0.5;
     double headerOffsetY = 0.5;
 
+    Color propertyColor = Color.BLACK;
+    Font propertyFont = new Font("consolas", Font.PLAIN, 12);
+
     int groupMargin = 2;
 
 }

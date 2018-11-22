@@ -67,8 +67,11 @@ public abstract class Histogram {
         plotKeys();
         if (formats.hasBorder) plotBorder();
         if (formats.hasHeader) plotHeader();
+        plotProperty();
         plotBars();
     }
+
+    protected abstract void plotBars();
 
     protected void plotRuler() {
         StdDraw.setFont(formats.rulerFont);
@@ -129,6 +132,27 @@ public abstract class Histogram {
         StdDraw.text(x, y, header);
     }
 
-    protected abstract void plotBars();
+    protected void plotProperty() {
+        double width = (windowXMax - 1) / 4.0;
+        double y = chartYMin - rulerStep;
+        for (int i = 0; i < properties.size(); i++) {
+            Property property = properties.get(i);
+            double x = i * width;
+
+            double size = 0.12;
+            double height = widthToHeight(size);
+
+            StdDraw.setPenColor(property.color);
+            StdDraw.filledRectangle(x, y, size, height);
+            StdDraw.setPenColor(formats.propertyColor);
+            StdDraw.setFont(formats.propertyFont);
+            StdDraw.textLeft(x + 0.25, y, property.name);
+        }
+    }
+
+    private double widthToHeight(double size) {
+        return size / (windowXMax - windowXMin) * (windowYMax - windowYMin)
+                / canvas.y * canvas.x;
+    }
 
 }
