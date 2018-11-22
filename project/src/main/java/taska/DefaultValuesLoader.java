@@ -1,32 +1,34 @@
-package taskb;
+package taska;
 
 import javax.json.*;
 import java.io.IOException;
+import java.io.InputStream;
 
-public class DefalutValuesLoader {
+public class DefaultValuesLoader {
 
-    final static String defaultFile = "default-b.json";
+    private final static String defaultFile = "default.json";
 
     static ValueGetter CANVAS;
     static ValueGetter FMTS;
     static ValueGetter DATA;
 
     static {
-        ClassLoader classLoader = DefalutValuesLoader.class.getClassLoader();
+        ClassLoader classLoader = DefaultValuesLoader.class.getClassLoader();
 
         try (
-                JsonReader rdr = Json.createReader(classLoader.getResource(defaultFile).openStream())
+                InputStream is = classLoader.getResource(defaultFile).openStream();
+                JsonReader rdr = Json.createReader(is)
         ) {
             JsonObject obj = rdr.readObject().getJsonObject("histograma");
             CANVAS = new ValueGetter(obj.getJsonObject("canvas"));
             FMTS = new ValueGetter(obj.getJsonObject("formats"));
-            DATA = new ValueGetter(obj.getJsonObject("value"));
+            DATA = new ValueGetter(obj.getJsonObject("data"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    static class ValueGetter {
+    public static class ValueGetter {
         private JsonObject defaultValues;
         private JsonObject values;
 
@@ -54,7 +56,7 @@ public class DefalutValuesLoader {
             return values != null && values.containsKey(key2);
         }
 
-        JsonObject getValues() {
+        public JsonObject getValues() {
             return values;
         }
 

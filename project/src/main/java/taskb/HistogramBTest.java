@@ -85,7 +85,7 @@ public class HistogramBTest {
     private static Canvas getCanvasFrom(JsonObject obj) {
         Canvas canvas = new Canvas();
 
-        DefalutValuesLoader.ValueGetter getter = DefalutValuesLoader.CANVAS;
+        DefaultValuesLoader.ValueGetter getter = DefaultValuesLoader.CANVAS;
         getter.setValues(obj);
 
         int[] size = toIntArray(getter.getJsonArray("size"));
@@ -101,7 +101,7 @@ public class HistogramBTest {
     }
 
     private static Formats getFormatsFrom(JsonObject obj) {
-        DefalutValuesLoader.ValueGetter getter = DefalutValuesLoader.FMTS;
+        DefaultValuesLoader.ValueGetter getter = DefaultValuesLoader.FMTS;
         getter.setValues(obj);
 
         Formats fmts = new Formats();
