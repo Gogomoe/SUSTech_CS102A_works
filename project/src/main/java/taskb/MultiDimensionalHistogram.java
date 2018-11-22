@@ -14,7 +14,7 @@ public class MultiDimensionalHistogram extends Histogram {
                 .max()
                 .getAsDouble();
 
-        ChartCalculator calculator = new ChartCalculator(this, itemCount, maxValue);
+        ChartSizeCalculator calculator = new ChartSizeCalculator(this, itemCount, maxValue);
         this.chartXMin = calculator.chartXMin;
         this.chartXMax = calculator.chartXMax;
         this.chartYMin = calculator.chartYMin;

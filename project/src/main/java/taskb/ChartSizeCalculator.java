@@ -2,7 +2,7 @@ package taskb;
 
 import kotlin.Pair;
 
-class ChartCalculator {
+class ChartSizeCalculator {
 
     double chartXMin;
     double chartXMax;
@@ -12,7 +12,7 @@ class ChartCalculator {
     int rulerGrade;
     double rulerStep;
 
-    ChartCalculator(Histogram histogram, int itemsCount, double maxValue) {
+    ChartSizeCalculator(Histogram histogram, int itemsCount, double maxValue) {
         chartXMin = -1;
         chartXMax = itemsCount + (histogram.groups.size() - 1) * histogram.formats.groupMargin;
         chartYMin = 0;
@@ -43,6 +43,29 @@ class ChartCalculator {
         int level = (int) Math.floor(Math.log10(span));
         span = span * Math.pow(10, -level);
         factor = factor * Math.pow(10, level);
+
+        if (span < 5) {
+            double power = Math.pow(10, level - 1);
+
+            Pair[] map = new Pair[]{
+                    new Pair<>(1.2, new Pair<>(6, 2 * power)),
+                    new Pair<>(1.5, new Pair<>(5, 3 * power)),
+                    new Pair<>(1.8, new Pair<>(6, 3 * power)),
+                    new Pair<>(2.0, new Pair<>(5, 4 * power)),
+                    new Pair<>(2.4, new Pair<>(6, 4 * power)),
+                    new Pair<>(2.5, new Pair<>(5, 5 * power)),
+                    new Pair<>(3.0, new Pair<>(6, 5 * power)),
+                    new Pair<>(3.6, new Pair<>(6, 6 * power)),
+                    new Pair<>(4.2, new Pair<>(6, 7 * power)),
+                    new Pair<>(4.8, new Pair<>(6, 8 * power)),
+            };
+            for (Pair pair : map) {
+                if (span < (Double) pair.getFirst()) {
+                    return (Pair<Integer, Double>) pair.getSecond();
+                }
+            }
+            return new Pair<>(5, 10 * power);
+        }
 
         return new Pair<>((int) Math.ceil(span), factor);
     }
