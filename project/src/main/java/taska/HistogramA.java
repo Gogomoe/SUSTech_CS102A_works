@@ -94,20 +94,13 @@ public class HistogramA {
             }
         int nSpan = (int) Math.ceil(span);
         yValue[MAX] = yValue[MIN] + factor * nSpan;
-        switch (nSpan) {
-            case 1:
-                rulerGrade = 5;
-                rulerStep = factor / 5;
-                break;
-            case 2:
-            case 3:
-                rulerGrade = nSpan * 2;
-                rulerStep = factor / 2;
-                break;
-            default:
-                rulerGrade = nSpan;
-                rulerStep = factor;
-                break;
+
+        if (nSpan <= 5) {
+            rulerGrade = 5;
+            rulerStep = factor * nSpan / 5.0;
+        } else {
+            rulerGrade = nSpan;
+            rulerStep = factor;
         }
     }
 
@@ -141,8 +134,6 @@ public class HistogramA {
         xScale[MAX] = nBars + f.margins[EAST] * xSpacing;
         StdDraw.setXscale(xScale[MIN], xScale[MAX]);
     }
-
-    ;
 
     private void setOriginalScale() {
         StdDraw.setXscale(c.xScale[MIN], c.xScale[MAX]);
@@ -220,6 +211,8 @@ public class HistogramA {
             mark[i] = numberForRuler(y);
             StdDraw.line(x0, y, x1, y);
         }
+
+        StdDraw.setPenColor(f.rulerMarkColor);
         int len = maxMarkLength(mark);
         final double xs = xScale[MIN] + 0.7 * (xValue[MIN] - xScale[MIN]);
         for (int i = 0; i <= rulerGrade; i++) {
@@ -242,6 +235,7 @@ public class HistogramA {
             StdDraw.line(x0, y, x1, y);
         }
 
+        StdDraw.setPenColor(f.rulerMarkColor);
         int len = maxMarkLength(mark);
         final double xs = xScale[MAX] + 0.6 * (xValue[MAX] - xScale[MAX]);
         for (int i = 0; i <= rulerGrade; i++) {
