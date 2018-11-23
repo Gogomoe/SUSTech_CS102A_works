@@ -38,19 +38,19 @@ public class MultiDimensionalHistogram extends Histogram {
     }
 
     private void drawBar(int x, Item item) {
-        StdDraw.setPenColor(item.property.color);
+        GoDraw.setPenColor(item.property.color);
         if (formats.isBarFilled) {
-            StdDraw.filledRectangle(x, item.value / 2, 0.5, item.value / 2);
+            GoDraw.filledRectangle(x, item.value / 2, 0.5, item.value / 2);
         }
         if (formats.hasBarFrame) {
-            StdDraw.rectangle(x, item.value / 2, 0.5, item.value / 2);
+            GoDraw.rectangle(x, item.value / 2, 0.5, item.value / 2);
         }
     }
 
     @Override
     protected void plotKeys() {
-        StdDraw.setFont(formats.keyFont);
-        StdDraw.setPenColor(formats.keyColor);
+        GoDraw.setFont(formats.keyFont);
+        GoDraw.setPenColor(formats.keyColor);
 
         int left = 0;
         int right;
@@ -58,7 +58,7 @@ public class MultiDimensionalHistogram extends Histogram {
         for (Group group : groups) {
             right = left + group.items.size() - 1;
             double x = (left + right) / 2.0;
-            StdDraw.text(x, y, group.name);
+            GoDraw.text(x, y, group.name);
             left = right + formats.groupMargin + 1;
         }
 

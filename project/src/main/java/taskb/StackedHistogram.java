@@ -35,24 +35,24 @@ public class StackedHistogram extends Histogram {
     }
 
     private void drawBar(int x, double y, Item item) {
-        StdDraw.setPenColor(item.property.color);
+        GoDraw.setPenColor(item.property.color);
         if (formats.isBarFilled) {
-            StdDraw.filledRectangle(x, y, 0.5, item.value / 2);
+            GoDraw.filledRectangle(x, y, 0.5, item.value / 2);
         }
         if (formats.hasBarFrame) {
-            StdDraw.rectangle(x, y, 0.5, item.value / 2);
+            GoDraw.rectangle(x, y, 0.5, item.value / 2);
         }
     }
 
     @Override
     protected void plotKeys() {
-        StdDraw.setFont(formats.keyFont);
-        StdDraw.setPenColor(formats.keyColor);
+        GoDraw.setFont(formats.keyFont);
+        GoDraw.setPenColor(formats.keyColor);
 
         final double y = chartYMin - 0.5 * rulerStep;
         for (int i = 0; i < groups.size(); i++) {
             Group group = groups.get(i);
-            StdDraw.text(i + i * formats.groupMargin, y, group.name);
+            GoDraw.text(i + i * formats.groupMargin, y, group.name);
         }
     }
 }

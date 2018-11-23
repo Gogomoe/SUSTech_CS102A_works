@@ -41,8 +41,8 @@ public abstract class Histogram {
     }
 
     protected void setHistogramParameters() {
-        StdDraw.setCanvasSize(canvas.x, canvas.y);
-        StdDraw.clear(canvas.bgColor);
+        GoDraw.setCanvasSize(canvas.x, canvas.y);
+        GoDraw.clear(canvas.bgColor);
 
         calculateChartSize();
 
@@ -54,12 +54,11 @@ public abstract class Histogram {
         windowXMin = chartXMin - formats.leftMargin * xSpacing;
         windowXMax = chartXMax + formats.rightMargin * xSpacing;
 
-        StdDraw.setYscale(windowYMin, windowYMax);
-        StdDraw.setXscale(windowXMin, windowXMax);
+        GoDraw.setYscale(windowYMin, windowYMax);
+        GoDraw.setXscale(windowXMin, windowXMax);
 
     }
 
-    // TODO set chart values and rulerStep rulerGrade
     protected abstract void calculateChartSize();
 
     public void draw() {
@@ -74,8 +73,8 @@ public abstract class Histogram {
     protected abstract void plotBars();
 
     protected void plotRuler() {
-        StdDraw.setFont(formats.rulerFont);
-        StdDraw.setPenColor(formats.rulerColor);
+        GoDraw.setFont(formats.rulerFont);
+        GoDraw.setPenColor(formats.rulerColor);
 
         double x0 = chartXMin;
         double x1 = chartXMax;
@@ -84,15 +83,15 @@ public abstract class Histogram {
         for (int i = 0; i <= rulerGrade; i++) {
             double y = chartYMin + i * rulerStep;
             mark[i] = numberForRuler(y);
-            StdDraw.line(x0, y, x1, y);
+            GoDraw.line(x0, y, x1, y);
         }
 
-        StdDraw.setPenColor(formats.rulerMarkColor);
+        GoDraw.setPenColor(formats.rulerMarkColor);
         int len = maxMarkLength(mark);
         final double xs = windowXMin + 0.7 * (chartXMin - windowXMin);
         for (int i = 0; i <= rulerGrade; i++) {
             double y = chartYMin + i * rulerStep;
-            StdDraw.text(xs, y, String.format("%" + len + "s", mark[i]));
+            GoDraw.text(xs, y, String.format("%" + len + "s", mark[i]));
         }
     }
 
@@ -120,16 +119,16 @@ public abstract class Histogram {
         double y = .5 * (chartYMin + chartYMax);
         double halfWidth = .5 * (chartXMax - chartXMin);
         double halfHeight = .5 * (chartYMax - chartYMin);
-        StdDraw.setPenColor(formats.borderColor);
-        StdDraw.rectangle(x, y, halfWidth, halfHeight);
+        GoDraw.setPenColor(formats.borderColor);
+        GoDraw.rectangle(x, y, halfWidth, halfHeight);
     }
 
     protected void plotHeader() {
-        StdDraw.setFont(formats.headerFont);
+        GoDraw.setFont(formats.headerFont);
         double x = formats.headerOffsetX * (windowXMin + windowXMax);
         double y = chartYMax + formats.headerOffsetY * (windowYMax - chartYMax);
-        StdDraw.setPenColor(formats.headerColor);
-        StdDraw.text(x, y, header);
+        GoDraw.setPenColor(formats.headerColor);
+        GoDraw.text(x, y, header);
     }
 
     protected void plotProperty() {
@@ -142,11 +141,11 @@ public abstract class Histogram {
             double size = 0.12;
             double height = widthToHeight(size);
 
-            StdDraw.setPenColor(property.color);
-            StdDraw.filledRectangle(x, y, size, height);
-            StdDraw.setPenColor(formats.propertyColor);
-            StdDraw.setFont(formats.propertyFont);
-            StdDraw.textLeft(x + 0.25, y, property.name);
+            GoDraw.setPenColor(property.color);
+            GoDraw.filledRectangle(x, y, size, height);
+            GoDraw.setPenColor(formats.propertyColor);
+            GoDraw.setFont(formats.propertyFont);
+            GoDraw.textLeft(x + 0.25, y, property.name);
         }
     }
 
