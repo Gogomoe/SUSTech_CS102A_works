@@ -449,15 +449,7 @@ public class GoDraw {
     }
 
     public static void text(double x, double y, String text) {
-        if (text == null) throw new IllegalArgumentException();
-        offscreen.setFont(font);
-        FontMetrics metrics = offscreen.getFontMetrics();
-        double xs = scaleX(x);
-        double ys = scaleY(y);
-        int ws = metrics.stringWidth(text);
-        int hs = metrics.getDescent();
-        offscreen.drawString(text, (float) (xs - ws / 2.0), (float) (ys + hs));
-        draw();
+        text(x, y, text, 0);
     }
 
     public static void text(double x, double y, String text, double degrees) {
@@ -465,8 +457,13 @@ public class GoDraw {
         double xs = scaleX(x);
         double ys = scaleY(y);
         offscreen.rotate(Math.toRadians(-degrees), xs, ys);
-        text(x, y, text);
+        offscreen.setFont(font);
+        FontMetrics metrics = offscreen.getFontMetrics();
+        int ws = metrics.stringWidth(text);
+        int hs = metrics.getDescent();
+        offscreen.drawString(text, (float) (xs - ws / 2.0), (float) (ys + hs));
         offscreen.rotate(Math.toRadians(+degrees), xs, ys);
+        draw();
     }
 
     public static void textLeft(double x, double y, String text) {

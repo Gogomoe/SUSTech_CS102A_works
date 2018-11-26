@@ -59,9 +59,9 @@ import java.util.TreeSet;
  *   public class TestStdDraw {
  *       public static void main(String[] args) {
  *           StdDraw.setPenRadius(0.05);
- *           StdDraw.setPenColor(StdDraw.BLUE);
+ *           StdDraw.setColor(StdDraw.BLUE);
  *           StdDraw.point(0.5, 0.5);
- *           StdDraw.setPenColor(StdDraw.MAGENTA);
+ *           StdDraw.setColor(StdDraw.MAGENTA);
  *           StdDraw.line(0.2, 0.2, 0.8, 0.2);
  *       }
  *   }
@@ -73,7 +73,7 @@ import java.util.TreeSet;
  * control drawing parameters.
  * The methods {@code StdDraw.line()} and {@code StdDraw.point()}
  * draw lines and points; the methods {@code StdDraw.setPenRadius()}
- * and {@code StdDraw.setPenColor()} control the line thickness and color.
+ * and {@code StdDraw.setColor()} control the line thickness and color.
  * <p>
  * <b>Points and lines.</b>
  * You can draw points and line segments with the following methods:
@@ -180,7 +180,7 @@ import java.util.TreeSet;
  * {@link #PINK}, {@link #RED}, {@link #WHITE}, {@link #YELLOW},
  * {@link #BOOK_BLUE}, {@link #BOOK_LIGHT_BLUE}, {@link #BOOK_RED}, and
  * {@link #PRINCETON_ORANGE}.
- * For example, {@code StdDraw.setPenColor(StdDraw.MAGENTA)} sets the
+ * For example, {@code StdDraw.setColor(StdDraw.MAGENTA)} sets the
  * pen color to magenta.
  * <p>
  * <b>Canvas size.</b>
