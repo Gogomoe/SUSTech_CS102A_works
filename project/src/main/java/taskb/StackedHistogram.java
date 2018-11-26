@@ -1,5 +1,7 @@
 package taskb;
 
+import utils.GoDraw;
+
 public class StackedHistogram extends Histogram {
     @Override
     protected void calculateChartSize() {

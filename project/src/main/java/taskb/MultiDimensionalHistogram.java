@@ -1,5 +1,7 @@
 package taskb;
 
+import utils.GoDraw;
+
 public class MultiDimensionalHistogram extends Histogram {
 
     @Override

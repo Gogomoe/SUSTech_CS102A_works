@@ -1,5 +1,7 @@
 package taska;
 
+import utils.StdDraw;
+
 import java.awt.*;
 
 class Canvas {

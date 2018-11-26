@@ -1,4 +1,4 @@
-package taskb; /******************************************************************************
+package utils; /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
  *  Dependencies: none

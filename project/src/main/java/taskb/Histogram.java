@@ -1,5 +1,7 @@
 package taskb;
 
+import utils.GoDraw;
+
 import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
