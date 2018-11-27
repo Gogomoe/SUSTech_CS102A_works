@@ -6,21 +6,31 @@ import java.awt.image.BufferedImage
 import java.net.MalformedURLException
 import java.net.URL
 import javax.swing.ImageIcon
+import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.roundToInt
 
 class Canvas {
 
     var width: Int = 1280
         private set
-    var height: Int = 960
+    var height: Int = 720
         private set
 
     var color = Color.BLACK
         set(value) {
             field = value
-            graphics.color = field
+            graphics.color = Color(field.red, field.green, field.blue,
+                    (255 * opacity).roundToInt())
         }
     val clearColor = Color.WHITE
+
+    var opacity: Float = 1f
+        set(value) {
+            field = value
+            graphics.color = Color(color.red, color.green, color.blue,
+                    (255 * opacity).roundToInt())
+        }
 
     var penRadius = 0.004
         set(value) {
@@ -30,12 +40,13 @@ class Canvas {
                     BasicStroke.JOIN_ROUND)
             graphics.stroke = stroke
         }
-    var font = Font("Microsoft YaHei Light", Font.PLAIN, 32)
-        get() = font.deriveFont(font.size.toFloat() / 2)
-        set(value) {
-            field = font.deriveFont(value.size.toFloat() * 2)
-        }
+    private var font = Font("Microsoft YaHei Light", Font.PLAIN, 32)
 
+    fun setFont(): Font = font.deriveFont(font.size.toFloat() / 2)
+
+    fun setFont(value: Font) {
+        font.deriveFont(value.size.toFloat() * 2)
+    }
 
     var xMin: Double = 0.0
         private set
@@ -46,15 +57,57 @@ class Canvas {
     var yMax: Double = 1.0
         private set
 
-
     var scale: Double = 2.0
-
 
     var image: BufferedImage = BufferedImage(
             (width * scale).toInt(), (height * scale).toInt(), BufferedImage.TYPE_4BYTE_ABGR)
-        private set
+        private set(value) {
+            field = value
+            graphics = value.createGraphics()
+        }
     private var graphics: Graphics2D = image.createGraphics()
 
+    var marginTop: Double = 0.2
+        private set
+    var marginRight: Double = 0.1
+        private set
+    var marginBottom: Double = 0.15
+        private set
+    var marginLeft: Double = 0.1
+        private set
+
+    var chartXMin: Double = 0.0
+        private set
+    var chartXMax: Double = 100.0
+        private set
+    var chartYMin: Double = 0.0
+        private set
+    var chartYMax: Double = 15.0
+        private set
+
+    fun setHistogram(marginTop: Double = 0.2, marginRight: Double = 0.1,
+                     marginBottom: Double = 0.15, marginLeft: Double = 0.1,
+                     itemCount: Int = 16) {
+        this.marginTop = marginTop
+        this.marginRight = marginRight
+        this.marginBottom = marginBottom
+        this.marginLeft = marginLeft
+
+        chartXMin = 0.0
+        chartXMax = 100.0
+        chartYMin = 0.0
+        chartYMax = (itemCount - 1).toDouble()
+
+        val ySpacing = (chartYMax - chartYMin) / (1.0 - marginTop - marginBottom)
+        val windowYMin = chartYMin - marginBottom * ySpacing
+        val windowYMax = chartYMax + marginTop * ySpacing
+
+        val xSpacing = (chartXMax - chartXMin) / (1.0 - marginLeft - marginRight)
+        val windowXMin = chartXMin - marginLeft * xSpacing
+        val windowXMax = chartXMax + marginRight * xSpacing
+
+        setScale(windowXMin, windowXMax, windowYMin, windowYMax)
+    }
 
     fun setSize(width: Int, height: Int) {
         this.width = width
@@ -63,8 +116,8 @@ class Canvas {
     }
 
     private fun init() {
-        image = BufferedImage(width * 2, height * 2, BufferedImage.TYPE_INT_ARGB)
-        graphics = image.createGraphics()
+        image = BufferedImage((width * scale).toInt(), (height * scale).toInt(),
+                BufferedImage.TYPE_INT_ARGB)
         graphics.setRenderingHint(
                 RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON)
@@ -108,6 +161,7 @@ class Canvas {
     }
 
     fun clear() {
+        graphics.color = clearColor
         graphics.fillRect(0, 0, (width * scale).toInt(), (height * scale).toInt())
     }
 

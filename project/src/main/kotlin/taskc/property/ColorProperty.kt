@@ -5,13 +5,8 @@ import kotlin.math.roundToInt
 
 class ColorProperty(override var value: Color = Color.BLACK) : Property<Color>() {
 
-    override var nowTick: Int = 0
-    override var totalTicks: Int = 0
-    override var startVal: Color = value
-    override var endValue: Color? = null
-
     override fun interpolate(nowTick: Int): Color =
-            value * startWeight() + endValue!! * endWeight()
+            startVal * startWeight() + endValue!! * endWeight()
 
 }
 
