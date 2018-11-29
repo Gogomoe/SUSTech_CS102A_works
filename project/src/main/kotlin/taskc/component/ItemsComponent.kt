@@ -13,17 +13,20 @@ class ItemsComponent(val data: Data) : Component() {
 
     var itemCount: Int = 16
 
-    val items: MutableMap<String, ItemComponent> = mutableMapOf()
+    private val items: MutableMap<String, ItemComponent> = mutableMapOf()
+    private val timeline: TimelineTextComponent
+    private val ruler: RulerComponent
 
-    private lateinit var status: List<ItemStatus>
+    private var status: List<ItemStatus>
 
     var maxValue: Int = 0
         private set
 
     init {
         val list: List<ItemStatus> = data.getCurrentStatus()
-        data.getCurrentStatus().forEachIndexed { index, itemStatus ->
-            val c = ItemComponent(itemStatus.item, this)
+        status = list
+        list.forEachIndexed { index, itemStatus ->
+            val c = ItemComponent(itemStatus.item) { maxValue }
             items[itemStatus.name] = c
             c.position.value = Vector(0.0, (itemCount - index - 1).toDouble())
             c.value.value = c.item.data[data.timeline.time]!!
@@ -32,25 +35,34 @@ class ItemsComponent(val data: Data) : Component() {
             }
             this.components.add(c)
         }
+        timeline = TimelineTextComponent(list[0].time)
+        ruler = RulerComponent { maxValue }
+        this.components.add(timeline)
+        this.components.add(ruler)
     }
 
     fun update(currentStatus: List<ItemStatus>, ticks: Int) {
+        applyItemsAnimation(currentStatus, ticks)
+        timeline.update(currentStatus[0].time, ticks)
+        status = currentStatus
+        maxValue = currentStatus[0].value
+    }
+
+    private fun applyItemsAnimation(currentStatus: List<ItemStatus>, ticks: Int) {
         currentStatus.forEachIndexed { index, itemStatus ->
             val animations = mutableListOf<Animation<*>>(
                     PositionAnimation(Vector(0.0, (itemCount - index - 1).toDouble()),
-                            ticks / 2, 10),
+                            ticks / 2, ticks / 4),
                     ValueAnimation(itemStatus.value, ticks)
             )
             val y = items[itemStatus.name]!!.position.value.y
             if (y < 0 && itemCount - index - 1 >= 0) {
-                animations.add(OpacityAnimation(1f, ticks / 2, 10))
+                animations.add(OpacityAnimation(1f, ticks / 2, ticks / 4))
             } else if (y >= 0 && itemCount - index - 1 < 0) {
-                animations.add(OpacityAnimation(0f, ticks / 2, 10))
+                animations.add(OpacityAnimation(0f, ticks / 2, ticks / 4))
             }
             items[itemStatus.name]!!.applyAnimations(animations)
         }
-        status = currentStatus
-        maxValue = currentStatus[0].value
     }
 
     override fun tick() {

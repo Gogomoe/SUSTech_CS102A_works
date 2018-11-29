@@ -10,12 +10,14 @@ import javax.swing.JPanel
 
 class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
 
-    val waitTime: Long = 1000L / ticksPerSecond
+    private val waitTime: Long = 1000L / ticksPerSecond
 
     fun start(histogram: Histogram) {
+        histogram.draw()
         init(histogram)
         paint()
         GlobalScope.launch {
+            paint()
             delay(1000)
 
             while (histogram.hasNextTime()) {
@@ -68,6 +70,7 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
         panel.setSize(histogram.canvas.width, histogram.canvas.height)
         panel.preferredSize = Dimension(histogram.canvas.width, histogram.canvas.height)
         frame.pack()
+        frame.isResizable = false
         frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         frame.isVisible = true
         frame.requestFocusInWindow()

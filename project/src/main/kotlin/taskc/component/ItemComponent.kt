@@ -5,8 +5,9 @@ import taskc.Item
 import taskc.animation.Animation
 import taskc.animation.ValueAnimation
 import taskc.property.ValueProperty
+import java.awt.Font
 
-class ItemComponent(val item: Item, val items: ItemsComponent) : Component() {
+class ItemComponent(val item: Item, val maxGetter: () -> Int) : Component() {
 
     init {
         level = 10
@@ -15,7 +16,9 @@ class ItemComponent(val item: Item, val items: ItemsComponent) : Component() {
     val value: ValueProperty = ValueProperty()
 
     override fun drawSelf(canvas: Canvas) {
-        val width = value.value.toDouble() / items.maxValue * 100
+        // TODO move font to other place
+        canvas.setFont(Font("Microsoft YaHei Light", Font.PLAIN, 16))
+        val width = value.value.toDouble() / maxGetter() * 100
         canvas.color = item.color
         canvas.filledRectangle(width / 2, 0.0, width / 2, 0.25)
         canvas.textRight(-1.0, 0.0, item.name)

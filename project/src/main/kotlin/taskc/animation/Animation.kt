@@ -26,3 +26,7 @@ class ColorAnimation(override val value: Color,
 class ValueAnimation(override val value: Int,
                      override val ticks: Int,
                      override val delay: Int = 0) : Animation<Int>()
+
+class TextAnimation(override val value: String,
+                    override val ticks: Int,
+                    override val delay: Int = 0) : Animation<String>()

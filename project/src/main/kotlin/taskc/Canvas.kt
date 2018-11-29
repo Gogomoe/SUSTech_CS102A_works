@@ -42,11 +42,11 @@ class Canvas {
         }
     private var font = Font("Microsoft YaHei Light", Font.PLAIN, 32)
 
-    fun setFont(): Font = font.deriveFont(font.size.toFloat() / 2)
-
     fun setFont(value: Font) {
-        font.deriveFont(value.size.toFloat() * 2)
+        font = value.deriveFont(value.size.toFloat() * 2)
     }
+
+    fun getFont(): Font = font.deriveFont(font.size.toFloat() / 2)
 
     var xMin: Double = 0.0
         private set

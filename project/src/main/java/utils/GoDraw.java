@@ -97,14 +97,14 @@ public class GoDraw {
 
     public static void setXscale(double min, double max) {
         double size = max - min;
-        if (size == 0.0) throw new IllegalArgumentException("the min and max are the same");
+        if (size == 0.0) throw new IllegalArgumentException("the min and maxGetter are the same");
         xmin = min;
         xmax = max;
     }
 
     public static void setYscale(double min, double max) {
         double size = max - min;
-        if (size == 0.0) throw new IllegalArgumentException("the min and max are the same");
+        if (size == 0.0) throw new IllegalArgumentException("the min and maxGetter are the same");
         ymin = min;
         ymax = max;
     }

@@ -34,7 +34,7 @@ private fun readData(timeline: Timeline, reader: JsonObject): Data {
     allItems.indices.forEach { i ->
         val itemReader = allItems.getJsonObject(i)
         val name = itemReader.getString("name")
-        val color = itemReader.getJsonArray("color").toColor()
+        val color = reader.getJsonObject("color").getJsonArray(name).toColor()
 
         val item = Item(name, color)
 
