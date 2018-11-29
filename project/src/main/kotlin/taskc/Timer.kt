@@ -12,12 +12,13 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
 
     private val waitTime: Long = 1000L / ticksPerSecond
 
+    private lateinit var histogram: Histogram
+
     fun start(histogram: Histogram) {
         histogram.draw()
         init(histogram)
         paint()
         GlobalScope.launch {
-            paint()
             delay(1000)
 
             while (histogram.hasNextTime()) {
@@ -32,10 +33,6 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
             }
         }
     }
-
-
-    private lateinit var histogram: Histogram
-
 
     private fun paint() {
         histogram.clear()

@@ -15,7 +15,7 @@ class ItemsComponent(val data: Data) : Component() {
 
     private val items: MutableMap<String, ItemComponent> = mutableMapOf()
     private val timeline: TimelineTextComponent
-    private val ruler: RulerComponent
+    private val ruler: RulersComponent
 
     private var status: List<ItemStatus>
 
@@ -36,7 +36,7 @@ class ItemsComponent(val data: Data) : Component() {
             this.components.add(c)
         }
         timeline = TimelineTextComponent(list[0].time)
-        ruler = RulerComponent { maxValue }
+        ruler = RulersComponent { maxValue }
         this.components.add(timeline)
         this.components.add(ruler)
     }
