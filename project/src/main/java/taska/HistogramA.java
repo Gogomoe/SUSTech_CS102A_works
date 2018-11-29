@@ -1,5 +1,6 @@
 package taska;
 
+import utils.ChartSizeCalculator;
 import utils.StdDraw;
 
 import java.awt.*;
@@ -72,38 +73,22 @@ public class HistogramA {
     }
 
     private void setHistogramParameters() {
-        double[] a = d.values;
-        xValue[MIN] = -1;
-        xValue[MAX] = a.length;
+        ChartSizeCalculator calculator = new ChartSizeCalculator(d.values.length, getMaxValue(),
+                0, 0);
+        xValue[MIN] = calculator.chartXMin;
+        xValue[MAX] = calculator.chartXMax;
+        yValue[MIN] = calculator.chartYMin;
+        yValue[MAX] = calculator.chartYMax;
+        rulerStep = calculator.rulerStep;
+        rulerGrade = calculator.rulerGrade;
+    }
 
-        yValue[MIN] = d.minValue;
-
-        double max = a[0];
-        for (int i = 1; i < a.length; i++)
-            if (max < a[i]) max = a[i];
-
-        double span = max - yValue[MIN];
-        double factor = 1.0;
-        if (span >= 1)
-            while (span >= 10) {
-                span /= 10;
-                factor *= 10;
-            }
-        else
-            while (span < 1) {
-                span *= 10;
-                factor /= 10;
-            }
-        int nSpan = (int) Math.ceil(span);
-        yValue[MAX] = yValue[MIN] + factor * nSpan;
-
-        if (nSpan <= 5) {
-            rulerGrade = 5;
-            rulerStep = factor * nSpan / 5.0;
-        } else {
-            rulerGrade = nSpan;
-            rulerStep = factor;
-        }
+    private double getMaxValue() {
+        double maxValue = d.values[0];
+        for (int i = 1; i < d.values.length; i++)
+            if (maxValue < d.values[i])
+                maxValue = d.values[i];
+        return maxValue;
     }
 
     public void draw() {

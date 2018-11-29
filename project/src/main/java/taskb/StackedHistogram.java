@@ -1,5 +1,6 @@
 package taskb;
 
+import utils.ChartSizeCalculator;
 import utils.GoDraw;
 
 public class StackedHistogram extends Histogram {
@@ -13,7 +14,8 @@ public class StackedHistogram extends Histogram {
                 .max()
                 .getAsDouble();
 
-        ChartSizeCalculator calculator = new ChartSizeCalculator(this, itemCount, maxValue);
+        ChartSizeCalculator calculator = new ChartSizeCalculator(itemCount, maxValue,
+                groups.size(), formats.groupMargin);
         this.chartXMin = calculator.chartXMin;
         this.chartXMax = calculator.chartXMax;
         this.chartYMin = calculator.chartYMin;

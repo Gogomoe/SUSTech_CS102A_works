@@ -1,20 +1,20 @@
-package taskb;
+package utils;
 
 import kotlin.Pair;
 
-class ChartSizeCalculator {
+public class ChartSizeCalculator {
 
-    double chartXMin;
-    double chartXMax;
-    double chartYMin;
-    double chartYMax;
+    public double chartXMin;
+    public double chartXMax;
+    public double chartYMin;
+    public double chartYMax;
 
-    int rulerGrade;
-    double rulerStep;
+    public int rulerGrade;
+    public double rulerStep;
 
-    ChartSizeCalculator(Histogram histogram, int itemsCount, double maxValue) {
+    public ChartSizeCalculator(int itemsCount, double maxValue, int groupsCount, int groupMargin) {
         chartXMin = -1;
-        chartXMax = itemsCount + (histogram.groups.size() - 1) * histogram.formats.groupMargin;
+        chartXMax = itemsCount + (groupsCount - 1) * groupMargin;
         chartYMin = 0;
 
         /**
