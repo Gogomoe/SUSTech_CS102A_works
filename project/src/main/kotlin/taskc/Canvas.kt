@@ -44,6 +44,7 @@ class Canvas {
 
     fun setFont(value: Font) {
         font = value.deriveFont(value.size.toFloat() * 2)
+        graphics.font = font
     }
 
     fun getFont(): Font = font.deriveFont(font.size.toFloat() / 2)

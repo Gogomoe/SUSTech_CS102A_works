@@ -1,5 +1,7 @@
 {
   "histogram": {
+    "title": "主要国家 GDP (亿美元)",
+    "title-font-size": 40,
     "margin": [
       0.15,
       0.1,
