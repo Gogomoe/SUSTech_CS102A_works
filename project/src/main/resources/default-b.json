@@ -2,7 +2,7 @@
   "histograma": {
     "type": "MULTI_DIMENSIONAL",
     "canvas": {
-      "size": [1280, 960],
+      "size": [1280, 720],
       "xscale": [0, 16.0],
       "yscale": [0, 9.0],
       "bgcolor": [255, 255, 255],

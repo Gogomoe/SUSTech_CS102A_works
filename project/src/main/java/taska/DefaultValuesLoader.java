@@ -6,7 +6,7 @@ import java.io.InputStream;
 
 public class DefaultValuesLoader {
 
-    private final static String defaultFile = "default.json";
+    private final static String defaultFile = "default-a.json";
 
     static ValueGetter CANVAS;
     static ValueGetter FMTS;
