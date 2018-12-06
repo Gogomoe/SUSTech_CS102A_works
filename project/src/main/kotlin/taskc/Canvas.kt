@@ -58,6 +58,11 @@ class Canvas {
     var yMax: Double = 1.0
         private set
 
+    var offsetX: Double = 0.0
+        private set
+    var offsetY: Double = 0.0
+        private set
+
     var scale: Double = 2.0
 
     var image: BufferedImage = BufferedImage(
@@ -139,6 +144,8 @@ class Canvas {
     }
 
     fun moveCenter(xOffset: Double, yOffset: Double) {
+        offsetX += xOffset
+        offsetY += yOffset
         xMin -= xOffset
         xMax -= xOffset
         yMin -= yOffset

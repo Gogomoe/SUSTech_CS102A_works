@@ -1,12 +1,13 @@
 package taskc.component
 
 import taskc.Canvas
+import taskc.Theme
 import taskc.animation.OpacityAnimation
 import java.lang.Math.pow
 import kotlin.math.floor
 import kotlin.math.log10
 
-class RulersComponent(val maxGetter: () -> Int) : Component() {
+class RulersComponent(val maxGetter: () -> Int, private val theme: Theme) : Component() {
 
     private val rulers: MutableMap<Int, RulerComponent> = mutableMapOf()
 
@@ -47,7 +48,7 @@ class RulersComponent(val maxGetter: () -> Int) : Component() {
     }
 
     private fun addRulers(toRemove: Set<Int>) {
-        toRemove.map { RulerComponent(it, maxGetter) }
+        toRemove.map { RulerComponent(it, maxGetter, theme) }
                 .forEach {
                     it.opacity.value = 0f
                     it.applyAnimation(OpacityAnimation(1.0f, 20))

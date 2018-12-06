@@ -1,5 +1,3 @@
 package taskc.action
 
-class ClickAction(var x: Double, var y: Double) : Action() {
-
-}
+class ClickAction(var x: Double, var y: Double) : Action()

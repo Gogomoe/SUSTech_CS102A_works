@@ -1,12 +1,13 @@
 package taskc.component
 
 import taskc.Canvas
+import taskc.Theme
 import taskc.animation.TextAnimation
 import taskc.property.TextProperty
 import java.awt.Color
 import java.awt.Font
 
-class TimelineTextComponent(time: String) : Component() {
+class TimelineTextComponent(time: String, private val theme: Theme) : Component() {
 
     val time: TextProperty = TextProperty()
 
@@ -19,9 +20,8 @@ class TimelineTextComponent(time: String) : Component() {
     }
 
     override fun drawSelf(canvas: Canvas) {
-        // TODO move font to other place
-        canvas.setFont(Font("Microsoft YaHei Light", Font.PLAIN, 64))
-        canvas.color = Color(60, 60, 60)
+        canvas.setFont(theme.timelineFont)
+        canvas.color = theme.timelineColor.value
         canvas.textRight(100.0, 0.3, time.value)
     }
 

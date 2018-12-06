@@ -2,7 +2,9 @@ package taskc.component
 
 import taskc.Canvas
 import taskc.Data
+import taskc.Theme
 import taskc.Timer
+import taskc.action.ClickAction
 import taskc.property.Vector
 import java.awt.*
 import java.awt.event.MouseAdapter
@@ -13,9 +15,12 @@ import javax.swing.JPanel
 
 class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Component() {
 
-    private val items: ItemsComponent = ItemsComponent(data)
-    private val background: BackgroundComponent = BackgroundComponent()
-    private var title: TitleComponent = TitleComponent()
+
+    val theme: Theme = Theme()
+
+    private val items: ItemsComponent = ItemsComponent(data, theme)
+    private val background: BackgroundComponent = BackgroundComponent(theme)
+    private var title: TitleComponent = TitleComponent("", theme)
 
     init {
         canvas.setHistogram()
@@ -52,7 +57,7 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         panel.repaint()
     }
 
-    private val frame = JFrame("Title")
+    private val frame = JFrame("Graph")
     private val panel = object : JPanel() {
         override fun paint(g: Graphics?) {
             super.paint(g)
@@ -72,7 +77,10 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         init {
             this.addMouseListener(object : MouseAdapter() {
                 override fun mouseClicked(e: MouseEvent?) {
-
+                    e!!
+                    receiveAction(ClickAction(
+                            canvas.xMin + canvas.offsetX + (canvas.xMax - canvas.xMin) * e.x / canvas.width,
+                            canvas.yMax + canvas.offsetY - (canvas.yMax - canvas.yMin) * e.y / canvas.height))
                 }
             })
         }

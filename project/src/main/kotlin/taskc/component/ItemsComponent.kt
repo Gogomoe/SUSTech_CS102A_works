@@ -2,6 +2,7 @@ package taskc.component
 
 import taskc.Data
 import taskc.ItemStatus
+import taskc.Theme
 import taskc.animation.Animation
 import taskc.animation.OpacityAnimation
 import taskc.animation.PositionAnimation
@@ -9,7 +10,7 @@ import taskc.animation.ValueAnimation
 import taskc.property.Vector
 import kotlin.math.max
 
-class ItemsComponent(val data: Data) : Component() {
+class ItemsComponent(val data: Data, private val theme: Theme) : Component() {
 
     var itemCount: Int = 16
 
@@ -35,8 +36,8 @@ class ItemsComponent(val data: Data) : Component() {
             }
             this.components.add(c)
         }
-        timeline = TimelineTextComponent(list[0].time)
-        ruler = RulersComponent { maxValue }
+        timeline = TimelineTextComponent(list[0].time, theme)
+        ruler = RulersComponent({ maxValue }, theme)
         this.components.add(timeline)
         this.components.add(ruler)
     }

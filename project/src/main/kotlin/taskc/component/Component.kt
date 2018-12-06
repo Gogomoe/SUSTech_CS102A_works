@@ -51,8 +51,10 @@ abstract class Component {
     }
 
     fun receiveAction(action: Action) {
-        components.forEach {
-            it.handleAction(action)
+        components.sortedByDescending { it.level }.forEach {
+            offsetAction(action, it) {
+                it.handleAction(action)
+            }
             if (action.done) {
                 return
             }
@@ -61,5 +63,17 @@ abstract class Component {
     }
 
     open fun handleAction(action: Action) {}
+
+    private inline fun offsetAction(action: Action, component: Component, todo: () -> Unit) {
+        if (action is ClickAction) {
+            action.x -= component.position.value.x
+            action.y -= component.position.value.y
+        }
+        todo()
+        if (action is ClickAction) {
+            action.x += component.position.value.x
+            action.y += component.position.value.y
+        }
+    }
 
 }
