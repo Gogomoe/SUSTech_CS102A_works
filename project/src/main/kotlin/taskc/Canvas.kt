@@ -152,6 +152,10 @@ class Canvas {
         yMax -= yOffset
     }
 
+    fun widthToHeight(size: Double): Double {
+        return size / (xMax - xMin) * (yMax - yMin) / height * width
+    }
+
     private fun scaleX(x: Double): Double {
         return scale * width.toDouble() * (x - xMin) / (xMax - xMin)
     }
@@ -199,7 +203,7 @@ class Canvas {
         val xs = scaleX(x)
         val ys = scaleY(y)
         val ws = factorX(2 * radius)
-        val hs = factorY(2 * radius)
+        val hs = factorY(widthToHeight(2 * radius))
         if (ws <= 1 && hs <= 1)
             pixel(x, y)
         else
@@ -211,7 +215,7 @@ class Canvas {
         val xs = scaleX(x)
         val ys = scaleY(y)
         val ws = factorX(2 * radius)
-        val hs = factorY(2 * radius)
+        val hs = factorY(widthToHeight(2 * radius))
         if (ws <= 1 && hs <= 1)
             pixel(x, y)
         else

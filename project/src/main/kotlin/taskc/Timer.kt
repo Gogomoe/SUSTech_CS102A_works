@@ -23,15 +23,16 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
         GlobalScope.launch {
             delay(1000)
 
-            while (histogram.hasNextTime()) {
-                histogram.nextTime()
-                var tick = 0
-                while (tick < ticksPerTime) {
-                    delay(waitTime)
-                    histogram.tick()
-                    tick++
-                    histogram.paint()
+            var tick = ticksPerTime
+            while (true) {
+                if (tick >= ticksPerTime && histogram.hasNextTime()) {
+                    histogram.nextTime()
+                    tick = 0
                 }
+                delay(waitTime)
+                histogram.tick()
+                tick++
+                histogram.paint()
             }
         }
     }

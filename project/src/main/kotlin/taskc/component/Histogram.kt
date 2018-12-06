@@ -21,12 +21,14 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
     private val items: ItemsComponent = ItemsComponent(data, theme)
     private val background: BackgroundComponent = BackgroundComponent(theme)
     private var title: TitleComponent = TitleComponent("", theme)
+    private val themeSelector: ThemeComponent = ThemeComponent(theme)
 
     init {
         canvas.setHistogram()
         components.add(background)
         components.add(items)
         components.add(title)
+        components.add(themeSelector)
         items.update(data.getCurrentStatus(), timer.ticksPerTime)
     }
 
@@ -35,6 +37,7 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
                      itemCount: Int) {
         items.itemCount = itemCount
         canvas.setHistogram(marginTop, marginRight, marginBottom, marginLeft, itemCount)
+        themeSelector.initPosition(canvas)
     }
 
     fun setTitle(title: TitleComponent) {

@@ -5,10 +5,10 @@ import java.awt.Color
 import java.awt.Font
 
 class Theme {
-    val background: ColorProperty = ColorProperty(Color(224, 224, 224))
+    val background: ColorProperty = ColorProperty(Color(250, 250, 250))
 
     var titleFont: Font = Font("Microsoft YaHei", Font.PLAIN, 32)
-    var titleColor: ColorProperty = ColorProperty(Color(90, 90, 90))
+    var titleColor: ColorProperty = ColorProperty(Color(72, 72, 72))
 
     var rulerFont: Font = Font("Microsoft YaHei Light", Font.PLAIN, 16)
     val rulerColor: ColorProperty = ColorProperty(Color(160, 160, 160, 93))

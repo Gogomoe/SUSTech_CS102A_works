@@ -21,5 +21,7 @@ operator fun Color.plus(other: Color) = Color(
         red + other.red,
         green + other.green,
         blue + other.blue,
-        alpha + other.alpha
+        colorBounds(alpha + other.alpha)
 )
+
+private inline fun colorBounds(it: Int) = Math.max(Math.min(it, 255), 0)
