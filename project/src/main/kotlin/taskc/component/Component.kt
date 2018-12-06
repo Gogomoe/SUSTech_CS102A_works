@@ -1,6 +1,8 @@
 package taskc.component
 
 import taskc.Canvas
+import taskc.action.Action
+import taskc.action.ClickAction
 import taskc.animation.Animation
 import taskc.animation.OpacityAnimation
 import taskc.animation.PositionAnimation
@@ -15,7 +17,7 @@ abstract class Component {
 
     protected val components: MutableList<Component> = mutableListOf()
 
-    open fun draw(canvas: Canvas) {
+    fun draw(canvas: Canvas) {
         canvas.opacity = opacity.value
         components.sortedBy { it.level }.forEach {
             val v = it.position.value
@@ -48,5 +50,16 @@ abstract class Component {
         components.forEach { it -> it.tick() }
     }
 
+    fun receiveAction(action: Action) {
+        components.forEach {
+            it.handleAction(action)
+            if (action.done) {
+                return
+            }
+        }
+        handleAction(action)
+    }
+
+    open fun handleAction(action: Action) {}
 
 }

@@ -4,6 +4,11 @@ import taskc.Canvas
 import taskc.Data
 import taskc.Timer
 import taskc.property.Vector
+import java.awt.*
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
+import javax.swing.JFrame
+import javax.swing.JPanel
 
 
 class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Component() {
@@ -35,10 +40,6 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         components.add(title)
     }
 
-    fun draw() {
-        draw(canvas)
-    }
-
     fun hasNextTime(): Boolean = data.hasNextTime()
 
     fun nextTime() {
@@ -46,4 +47,47 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         items.update(data.getCurrentStatus(), timer.ticksPerTime)
     }
 
+    fun paint() {
+        draw(canvas)
+        panel.repaint()
+    }
+
+    private val frame = JFrame("Title")
+    private val panel = object : JPanel() {
+        override fun paint(g: Graphics?) {
+            super.paint(g)
+
+            val g2d = g as Graphics2D
+            g2d.setRenderingHint(
+                    RenderingHints.KEY_RENDERING,
+                    RenderingHints.VALUE_RENDER_QUALITY)
+            g2d.setRenderingHint(
+                    RenderingHints.KEY_TEXT_ANTIALIASING,
+                    RenderingHints.VALUE_TEXT_ANTIALIAS_ON)
+
+            g2d.drawImage(canvas.image, 0, 0,
+                    canvas.width, canvas.height, null)
+        }
+
+        init {
+            this.addMouseListener(object : MouseAdapter() {
+                override fun mouseClicked(e: MouseEvent?) {
+
+                }
+            })
+        }
+    }
+
+    fun init() {
+        draw(canvas)
+
+        frame.contentPane.add(panel, BorderLayout.CENTER)
+        panel.setSize(canvas.width, canvas.height)
+        panel.preferredSize = Dimension(canvas.width, canvas.height)
+        frame.pack()
+        frame.isResizable = false
+        frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
+        frame.isVisible = true
+        frame.requestFocusInWindow()
+    }
 }
