@@ -35,7 +35,6 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
     }
 
     private fun paint() {
-        histogram.clear()
         histogram.draw()
         panel.repaint()
     }

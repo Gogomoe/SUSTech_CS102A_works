@@ -8,21 +8,22 @@ import taskc.property.Vector
 
 class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Component() {
 
-    private val itemsComponent: ItemsComponent = ItemsComponent(data)
-
+    private val items: ItemsComponent = ItemsComponent(data)
+    private val background: BackgroundComponent = BackgroundComponent()
     private var title: TitleComponent = TitleComponent()
 
     init {
         canvas.setHistogram()
-        components.add(itemsComponent)
+        components.add(background)
+        components.add(items)
         components.add(title)
-        itemsComponent.update(data.getCurrentStatus(), timer.ticksPerTime)
+        items.update(data.getCurrentStatus(), timer.ticksPerTime)
     }
 
     fun setHistogram(marginTop: Double, marginRight: Double,
                      marginBottom: Double, marginLeft: Double,
                      itemCount: Int) {
-        itemsComponent.itemCount = itemCount
+        items.itemCount = itemCount
         canvas.setHistogram(marginTop, marginRight, marginBottom, marginLeft, itemCount)
     }
 
@@ -42,11 +43,7 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
 
     fun nextTime() {
         data.nextTime()
-        itemsComponent.update(data.getCurrentStatus(), timer.ticksPerTime)
-    }
-
-    fun clear() {
-        canvas.clear()
+        items.update(data.getCurrentStatus(), timer.ticksPerTime)
     }
 
 }
