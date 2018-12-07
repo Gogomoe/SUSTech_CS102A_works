@@ -1,0 +1,99 @@
+{
+  "histograma": {
+    "type": "STACKED",
+    "canvas": {
+      "size": [1280, 720],
+      "xscale": [0, 16.0],
+      "yscale": [0, 9.0],
+      "bgcolor": [255, 255, 255],
+      "color": [77, 144, 254]
+    },
+    "formats": {
+      "margins": [0.15, 0.25, 0.1, 0.1],
+      "is_bar_filled": true,
+      "bar_fill_color": [53, 122, 232],
+      "has_bar_frame": false,
+      "bar_frame_color": [248, 248, 248],
+      "has_border": false,
+      "border_color": [53, 122, 232],
+      "ruler_color": [217, 217, 217],
+      "ruler_mark_color": [60, 60, 60],
+      "has_right_ruler": true,
+      "ruler_font": {
+        "font": "Microsoft YaHei",
+        "size": 16
+      },
+      "key_color": [60, 60, 60],
+      "key_font": {
+        "font": "Microsoft YaHei Light",
+        "size": 20
+      },
+      "has_header" : true,
+      "header_color" : [60, 60, 60],
+      "header_font" : {
+        "font" : "Microsoft YaHei Light",
+        "size" : 36
+      },
+      "header_offset" : [0.5, 0.5],
+
+      "property_color" : [60, 60, 60],
+      "property_font" : {
+        "font" : "Microsoft YaHei",
+        "size" : 20
+      },
+
+      "group-margin" : 2
+    },
+    "data": {
+      "header": "中国能源结构（万吨煤标准）",
+      "groups": [{
+        "name": "2008",
+        "values": [229236.87, 53542.04, 10900.77, 26931.32]
+      },{
+        "name": "2009",
+        "values": [240666.22, 55124.66, 11764.41, 28570.71]
+      },{
+        "name": "2010",
+        "values": [249568.42, 62752.75, 14425.92, 33900.91]
+      },{
+        "name": "2011",
+        "values": [271704.19, 65023.22, 17803.98, 32511.61]
+      },{
+        "name": "2012",
+        "values": [275464.53, 68363.46, 19302.62, 39007.39]
+      }, {
+        "name": "2013",
+        "values": [280999.36, 71292.12, 22096.39, 42525.13]
+      }, {
+        "name": "2014",
+        "values": [279328.74, 74090.24, 24270.94, 48116.08
+        ]
+      }, {
+        "name": "2015",
+        "values": [273849.49, 78672.62, 25364.4, 52018.51
+        ]
+      }, {
+        "name": "2016",
+        "values": [270320, 79788, 27904, 57988
+        ]
+      }
+      ],
+      "properties": [{
+        "name": "煤炭",
+        "color": [68, 163, 245]
+      },{
+        "name": "石油",
+        "color": [238, 84, 81]
+      },{
+        "name": "天然气",
+        "color": [102, 185, 106]
+      },{
+        "name": "清洁能源",
+        "color": [255, 200, 44]
+      }
+      ]
+    }
+  }
+}
+
+

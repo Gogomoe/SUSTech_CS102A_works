@@ -24,3 +24,19 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
+
+task taskA1(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taska.HistogramATest"
+    args "src/main/resources/A南方科技大学招生数.json"
+}
+task taskB1(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskb.HistogramBTest"
+    args "src/main/resources/B中国能源结构.json"
+}
+task taskC1(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskc.MainKt"
+    args "src/main/resources/C主要国家GDP.json"
+}

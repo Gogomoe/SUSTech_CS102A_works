@@ -3,18 +3,16 @@ package taskc
 import taskc.component.Histogram
 import taskc.component.TitleComponent
 import java.awt.Color
+import java.io.FileInputStream
 import javax.json.Json
 import javax.json.JsonArray
 import javax.json.JsonObject
-import javax.swing.JFrame
-
-const val fileName = "data-c.json"
 
 fun main(args: Array<String>) {
     val canvas = Canvas()
     canvas.setSize(1280, 720)
 
-    val reader = Json.createReader(Data::class.java.classLoader.getResourceAsStream(fileName)).readObject()
+    val reader = Json.createReader(FileInputStream(args[0])).readObject()
 
     val timeline = readTimeline(reader)
     val data = readData(timeline, reader)
