@@ -40,3 +40,9 @@ task taskC1(type: JavaExec) {
     main = "taskc.MainKt"
     args "src/main/resources/C主要国家GDP.json"
 }
+
+task taskC2(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskc.MainKt"
+    args "src/main/resources/ControllerTest.json"
+}

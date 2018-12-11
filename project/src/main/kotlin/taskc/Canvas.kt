@@ -6,8 +6,6 @@ import java.awt.image.BufferedImage
 import java.net.MalformedURLException
 import java.net.URL
 import javax.swing.ImageIcon
-import kotlin.math.max
-import kotlin.math.min
 import kotlin.math.roundToInt
 
 class Canvas {
@@ -319,9 +317,7 @@ class Canvas {
             graphics.fill(Rectangle2D.Double(xs - ws / 2, ys - hs / 2, ws, hs))
     }
 
-    fun polygon(x: DoubleArray?, y: DoubleArray?) {
-        if (x == null) throw IllegalArgumentException("x-coordinate array is null")
-        if (y == null) throw IllegalArgumentException("y-coordinate array is null")
+    fun polygon(x: Array<Double>, y: Array<Double>) {
         val n1 = x.size
         val n2 = y.size
         if (n1 != n2) throw IllegalArgumentException("arrays must be of the same length")
@@ -335,9 +331,7 @@ class Canvas {
         graphics.draw(path)
     }
 
-    fun filledPolygon(x: DoubleArray?, y: DoubleArray?) {
-        if (x == null) throw IllegalArgumentException("x-coordinate array is null")
-        if (y == null) throw IllegalArgumentException("y-coordinate array is null")
+    fun filledPolygon(x: Array<Double>, y: Array<Double>) {
         val n1 = x.size
         val n2 = y.size
         if (n1 != n2) throw IllegalArgumentException("arrays must be of the same length")

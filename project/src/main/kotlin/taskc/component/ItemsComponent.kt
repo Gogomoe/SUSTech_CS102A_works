@@ -42,7 +42,8 @@ class ItemsComponent(val data: Data, private val theme: Theme) : Component() {
         this.components.add(ruler)
     }
 
-    fun update(currentStatus: List<ItemStatus>, ticks: Int) {
+    fun update(ticks: Int) {
+        val currentStatus = data.getCurrentStatus()
         applyItemsAnimation(currentStatus, ticks)
         timeline.update(currentStatus[0].time, ticks)
         status = currentStatus

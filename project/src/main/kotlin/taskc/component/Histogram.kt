@@ -15,13 +15,13 @@ import javax.swing.JPanel
 
 class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Component() {
 
-
     val theme: Theme = Theme()
 
     private val items: ItemsComponent = ItemsComponent(data, theme)
     private val background: BackgroundComponent = BackgroundComponent(theme)
     private var title: TitleComponent = TitleComponent("", theme)
     private val themeSelector: ThemeComponent = ThemeComponent(theme)
+    private val timelineController: TimelineController = TimelineController(this, theme)
 
     init {
         canvas.setHistogram()
@@ -29,7 +29,8 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         components.add(items)
         components.add(title)
         components.add(themeSelector)
-        items.update(data.getCurrentStatus(), timer.ticksPerTime)
+        components.add(timelineController)
+        update()
     }
 
     fun setHistogram(marginTop: Double, marginRight: Double,
@@ -38,6 +39,7 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         items.itemCount = itemCount
         canvas.setHistogram(marginTop, marginRight, marginBottom, marginLeft, itemCount)
         themeSelector.initPosition(canvas)
+        timelineController.initPosition(canvas)
     }
 
     fun setTitle(title: TitleComponent) {
@@ -48,11 +50,23 @@ class Histogram(val canvas: Canvas, val data: Data, val timer: Timer) : Componen
         components.add(title)
     }
 
+    fun enableContorller(enable: Boolean) {
+        if (enable) {
+            components.add(timelineController)
+        } else {
+            components.remove(timelineController)
+        }
+    }
+
     fun hasNextTime(): Boolean = data.hasNextTime()
 
     fun nextTime() {
         data.nextTime()
-        items.update(data.getCurrentStatus(), timer.ticksPerTime)
+        update()
+    }
+
+    fun update() {
+        items.update(timer.ticksPerTime)
     }
 
     fun paint() {

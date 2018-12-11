@@ -58,6 +58,7 @@ private fun readHistogram(canvas: Canvas, data: Data, timer: Timer, reader: Json
     val histogram = Histogram(canvas, data, timer)
     histogram.setHistogram(margin[0], margin[1], margin[2], margin[3], r.getInt("item-count"))
     histogram.setTitle(TitleComponent(r.getString("title"), histogram.theme))
+    histogram.enableContorller(r.getBoolean("controller"))
     return histogram
 }
 

@@ -25,9 +25,9 @@ class ThemeComponent(val theme: Theme) : Component() {
     }
 
     override fun drawSelf(canvas: Canvas) {
-        canvas.color = Color(51, 51, 51)
+        canvas.color = theme.titleColor.value
         canvas.filledCircle(0.0, 0.0, radius)
-        canvas.color = Color(250, 250, 250)
+        canvas.color = theme.background.value
         canvas.filledCircle(0.0, 0.0, radius * 0.8)
     }
 

@@ -12,6 +12,8 @@ import javax.swing.JPanel
 
 class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
 
+    var paused = false
+
     private val waitTime: Long = 1000L / ticksPerSecond
 
     private lateinit var histogram: Histogram
@@ -21,11 +23,14 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
         histogram.init()
         histogram.paint()
         GlobalScope.launch {
+            histogram.timer.paused = true
+            histogram.paint()
             delay(1000)
+            histogram.timer.paused = false
 
             var tick = ticksPerTime
             while (true) {
-                if (tick >= ticksPerTime && histogram.hasNextTime()) {
+                if (tick >= ticksPerTime && histogram.hasNextTime() && !paused) {
                     histogram.nextTime()
                     tick = 0
                 }
