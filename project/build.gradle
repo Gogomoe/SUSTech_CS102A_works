@@ -30,10 +30,25 @@ task taskA1(type: JavaExec) {
     main = "taska.HistogramATest"
     args "src/main/resources/A南方科技大学招生数.json"
 }
+task taskA2(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taska.HistogramATest"
+    args "src/main/resources/A南方科技大学科研经费.json"
+}
+task taskA3(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taska.HistogramATest"
+    args "src/main/resources/A深圳市GDP.json"
+}
 task taskB1(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "taskb.HistogramBTest"
     args "src/main/resources/B中国能源结构.json"
+}
+task taskB2(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskb.HistogramBTest"
+    args "src/main/resources/B全球手机出货量.json"
 }
 task taskC1(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath

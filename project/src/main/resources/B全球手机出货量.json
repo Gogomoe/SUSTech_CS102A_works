@@ -1,0 +1,84 @@
+{
+  "histograma": {
+    "type": "MULTI_DIMENSIONAL",
+    "canvas": {
+      "size": [1280, 720],
+      "xscale": [0, 16.0],
+      "yscale": [0, 9.0],
+      "bgcolor": [255, 255, 255],
+      "color": [77, 144, 254]
+    },
+    "formats": {
+      "margins": [0.15, 0.25, 0.1, 0.1],
+      "is_bar_filled": true,
+      "bar_fill_color": [53, 122, 232],
+      "has_bar_frame": false,
+      "bar_frame_color": [248, 248, 248],
+      "has_border": false,
+      "border_color": [53, 122, 232],
+      "ruler_color": [217, 217, 217],
+      "ruler_mark_color": [60, 60, 60],
+      "has_right_ruler": true,
+      "ruler_font": {
+        "font": "Microsoft YaHei",
+        "size": 16
+      },
+      "key_color": [60, 60, 60],
+      "key_font": {
+        "font": "Microsoft YaHei Light",
+        "size": 20
+      },
+      "has_header" : true,
+      "header_color" : [60, 60, 60],
+      "header_font" : {
+        "font" : "Microsoft YaHei Light",
+        "size" : 36
+      },
+      "header_offset" : [0.5, 0.5],
+
+      "property_color" : [60, 60, 60],
+      "property_font" : {
+        "font" : "Microsoft YaHei",
+        "size" : 20
+      },
+
+      "group-margin" : 2
+    },
+    "data": {
+      "header": "全球手机出货量(万部)",
+      "groups": [{
+        "name": "2017Q3",
+        "values": [2650, 4544, 2685, 8561]
+      },{
+        "name": "2017Q4",
+        "values": [4389, 7318, 2819, 7403]
+      },{
+        "name": "2018Q1",
+        "values": [4043, 5406, 2850, 7856]
+      },{
+        "name": "2018Q2",
+        "values": [4985, 4472, 3283, 7234]
+      },{
+        "name": "2018Q3",
+        "values": [5205, 4698, 3570, 7230]
+      }
+      ],
+      "properties": [{
+        "name": "华为",
+        "color": [68, 163, 245]
+      },{
+        "name": "苹果",
+        "color": [238, 84, 81]
+      },{
+        "name": "小米",
+        "color": [102, 185, 106]
+      },{
+        "name": "三星",
+        "color": [255, 200, 44]
+      }
+      ]
+    }
+  }
+}
+
+
