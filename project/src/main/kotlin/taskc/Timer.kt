@@ -34,7 +34,8 @@ class Timer(val ticksPerTime: Int, val ticksPerSecond: Int) {
                     histogram.nextTime()
                     tick = 0
                 }
-                delay(waitTime)
+                delay(waitTime - 6)
+                //TODO Notice 6ms 是每次绘图大概需要的时间
                 histogram.tick()
                 tick++
                 histogram.paint()
