@@ -50,6 +50,11 @@ task taskB2(type: JavaExec) {
     main = "taskb.HistogramBTest"
     args "src/main/resources/B全球手机出货量.json"
 }
+task taskB3(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskb.HistogramBTest"
+    args "src/main/resources/B电商平台B2C年交易额.json"
+}
 task taskC1(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "taskc.MainKt"
