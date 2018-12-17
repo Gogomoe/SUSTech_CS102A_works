@@ -5,7 +5,7 @@
       "size": [1280, 720],
       "xscale": [0, 16.0],
       "yscale": [0, 9.0],
-      "bgcolor": [255, 255, 255],
+      "bgcolor": [36, 36, 36],
       "color": [77, 144, 254]
     },
     "formats": {
@@ -16,27 +16,27 @@
       "bar_frame_color": [248, 248, 248],
       "has_border": false,
       "border_color": [53, 122, 232],
-      "ruler_color": [217, 217, 217],
-      "ruler_mark_color": [60, 60, 60],
+      "ruler_color": [172, 172, 172],
+      "ruler_mark_color": [172, 172, 172],
       "has_right_ruler": true,
       "ruler_font": {
         "font": "Microsoft YaHei",
         "size": 16
       },
-      "key_color": [60, 60, 60],
+      "key_color": [172, 172, 172],
       "key_font": {
         "font": "Microsoft YaHei Light",
         "size": 20
       },
       "has_header" : true,
-      "header_color" : [60, 60, 60],
+      "header_color" : [172, 172, 172],
       "header_font" : {
         "font" : "Microsoft YaHei Light",
         "size" : 36
       },
       "header_offset" : [0.5, 0.5],
 
-      "property_color" : [60, 60, 60],
+      "property_color" : [172, 172, 172],
       "property_font" : {
         "font" : "Microsoft YaHei",
         "size" : 20
