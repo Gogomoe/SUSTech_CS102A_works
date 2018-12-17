@@ -11,7 +11,7 @@
     "formats": {
       "margins": [0.15, 0.25, 0.1, 0.1],
       "is_bar_filled": true,
-      "bar_fill_color": [53, 122, 232],
+      "bar_fill_color": [30, 136, 229],
       "has_bar_frame": false,
       "bar_frame_color": [248, 248, 248],
       "has_border": false,

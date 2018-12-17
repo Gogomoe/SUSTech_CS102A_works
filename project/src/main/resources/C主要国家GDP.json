@@ -5,11 +5,11 @@
     "margin": [
       0.15,
       0.1,
-      0.15,
+      0.2,
       0.1
     ],
     "item-count": 16,
-    "controller": false
+    "controller": true
   },
   "timer": {
     "ticks-per-time": 40,

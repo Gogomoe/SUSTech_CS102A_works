@@ -5,7 +5,7 @@
       "size" : [1280, 720],
       "xscale" : [0, 16.0],
       "yscale" : [0, 9.0],
-      "bgcolor" : [255, 255, 255],
+      "bgcolor" : [250, 250, 250],
       "color" : [77, 144, 254]
     },
 
@@ -13,13 +13,13 @@
       "margins" : [0.15, 0.25, 0.1, 0.1],
 
       "isbarfilled" : true,
-      "barfillcolor" : [53, 122, 232],
+      "barfillcolor" : [30, 136, 229],
 
       "hasbarframe" : false,
       "barframecolor" : [248, 248, 248],
 
       "hasborder" : true,
-      "bordercolor" : [53, 122, 232],
+      "bordercolor" : [30, 136, 229],
 
       "rulercolor" : [217, 217, 217],
       "rulermarkcolor" : [77, 144, 254],

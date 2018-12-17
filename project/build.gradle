@@ -40,6 +40,11 @@ task taskA3(type: JavaExec) {
     main = "taska.HistogramATest"
     args "src/main/resources/A深圳市GDP.json"
 }
+task taskA4(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taska.HistogramATest"
+    args "src/main/resources/A中国教育经费.json"
+}
 task taskB1(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "taskb.HistogramBTest"
@@ -55,14 +60,19 @@ task taskB3(type: JavaExec) {
     main = "taskb.HistogramBTest"
     args "src/main/resources/B电商平台B2C年交易额.json"
 }
+task taskB4(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskb.HistogramBTest"
+    args "src/main/resources/B北上广深GDP.json"
+}
 task taskC1(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = "taskc.MainKt"
+    args "src/main/resources/C各省人口.json"
+}
+task taskC2(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     main = "taskc.MainKt"
     args "src/main/resources/C主要国家GDP.json"
 }
 
-task taskC2(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = "taskc.MainKt"
-    args "src/main/resources/ControllerTest.json"
-}

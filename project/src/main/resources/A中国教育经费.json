@@ -1,0 +1,156 @@
+{
+  "histograma": {
+    "canvas": {
+      "size": [
+        1280,
+        720
+      ],
+      "xscale": [
+        0,
+        16.0
+      ],
+      "yscale": [
+        0,
+        9.0
+      ],
+      "bgcolor": [
+        0,
+        151,
+        167
+      ],
+      "color": [
+        77,
+        144,
+        254
+      ]
+    },
+    "formats": {
+      "margins": [
+        0.15,
+        0.25,
+        0.1,
+        0.05
+      ],
+      "isbarfilled": true,
+      "barfillcolor": [
+        238,
+        238,
+        238
+      ],
+      "hasbarframe": false,
+      "barframecolor": [
+        229,
+        57,
+        53
+      ],
+      "hasborder": false,
+      "bordercolor": [
+        229,
+        57,
+        53
+      ],
+      "rulercolor": [
+        238,
+        238,
+        238
+      ],
+      "rulermarkcolor": [
+        238,
+        238,
+        238
+      ],
+      "hasrightruler": false,
+      "rulerfont": {
+        "font": "Microsoft YaHei",
+        "size": 20
+      },
+      "keycolor": [
+        238,
+        238,
+        238
+      ],
+      "keyfont": {
+        "font": "Microsoft YaHei",
+        "size": 20
+      },
+      "hasheader": true,
+      "headercolor": [
+        238,
+        238,
+        238
+      ],
+      "headerfont": {
+        "font": "Microsoft YaHei",
+        "size": 32
+      },
+      "headeroffset": [
+        0.5,
+        0.5
+      ],
+      "hasfooter": true,
+      "footercolor": [
+        238,
+        238,
+        238
+      ],
+      "footerfont": {
+        "font": "Microsoft YaHei",
+        "size": 24
+      },
+      "footeroffset": [
+        0.5,
+        0.5
+      ]
+    },
+    "data": {
+      "header": "中国教育经费(万元)",
+      "footer": "",
+      "minvalue": 0.0,
+      "keys": [
+        "1998",
+        "",
+        "",
+        "2001",
+        "",
+        "",
+        "2004",
+        "",
+        "",
+        "2007",
+        "",
+        "",
+        "2010",
+        "",
+        "",
+        "2013",
+        "",
+        "",
+        "2016",
+        ""
+      ],
+      "values": [
+        29490592,
+        33490416,
+        38490806,
+        46376626,
+        54800278,
+        62082653,
+        72425989,
+        84188391,
+        98153087,
+        121480663,
+        145007374,
+        165027065,
+        195618471,
+        238692936,
+        286553052,
+        303647182,
+        328064609,
+        361291927,
+        388883900,
+        425620100
+      ]
+    }
+  }
+}
+
