@@ -11,6 +11,7 @@ class ItemComponent(val item: Item, val maxGetter: () -> Int) : Component() {
 
     init {
         level = 10
+        opacity.value = 0.9f
     }
 
     val value: ValueProperty = ValueProperty()
