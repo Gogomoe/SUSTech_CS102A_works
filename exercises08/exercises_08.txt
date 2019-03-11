@@ -1,0 +1,2 @@
+StdDraw 是期末 project 需要使用的一个绘制图像的库
+请自己摸索 StdDraw 的各种功能
